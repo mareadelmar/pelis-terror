@@ -1,0 +1,11 @@
+.btn-fav {
+    background: rgba(255, 172, 172, 0.3);
+    border: 0;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+}
+
+.btn-fav:hover {
+    background: rgba(255, 172, 172, 0.85);
+}

@@ -1,0 +1,68 @@
+.details-container {
+    width: 100%;
+    *min-height: 100vh;
+    color: #f2f2f2;
+}
+
+.details-content {
+    width: 100%;
+    min-height: 60vh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+    flex-direction: column;
+}
+
+.details-data {
+    width: 100%;
+}
+
+.details-title {
+    font-family: "Spectral SC", serif;
+}
+
+.details-text {
+    width: 75%;
+    margin: 7px 0 0 15%;
+}
+
+.details-img {
+    width: 100%;
+    margin: 70px 0;
+    text-align: center;
+}
+
+.img {
+    width: 60%;
+}
+
+@media (min-width: 800px) {
+    .details-container {
+        width: 100%;
+        min-height: 100vh;
+        color: #f2f2f2;
+    }
+
+    .details-content {
+        flex-direction: row;
+    }
+
+    .details-data {
+        width: 50%;
+    }
+
+    .details-text {
+        width: 80%;
+        margin: 7px 0;
+    }
+
+    .details-img {
+        width: 50%;
+        margin: 70px 0;
+        text-align: center;
+    }
+
+    .img {
+        width: 40%;
+    }
+}

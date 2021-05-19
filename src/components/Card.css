@@ -1,0 +1,46 @@
+.card {
+    width: 250px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 3%;
+    margin: 0.5em;
+    color: #f2f2f2;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover {
+    *background-color: #546e7a;
+    background-color: #1b2e3c;
+}
+
+.card-btns {
+    bottom: 8px;
+    right: 8px;
+    position: absolute;
+    *z-index: 1;
+}
+
+.card a {
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+.card-name {
+    text-decoration: none;
+    margin: 0.25em;
+    *font-family: "Spectral SC", serif;
+}
+
+.card-lang-year {
+    margin: 0.25em;
+}
+
+.card-img {
+    width: 70%;
+}

@@ -1,0 +1,13 @@
+.similar-container {
+    width: 100%;
+}
+
+.similar-movies {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.similar-title {
+    margin: 0 0 1em 2em;
+    font-weight: 700;
+}

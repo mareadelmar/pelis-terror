@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route } from "wouter";
+import Header from "./components/Header";
+import PageHome from "./pages/PageHome";
+import PageDetails from "./pages/PageDetails";
+import PageMovies from "./pages/PageMovies";
+import Login from "./components/Login";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header />
+            <Route path="/movie/:id" component={PageDetails} />
+            <Route path="/movies/:page" component={PageMovies} />
+            <Route path="/login" component={Login} />
+            <Route path="/" component={PageHome} />
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,14 @@
+header {
+    width: 100%;
+}
+
+.title {
+    font-size: 50px;
+    margin: 0.25em 0 0 0.5em;
+    cursor: pointer;
+    *color: #d50000;
+    color: #74112f;
+    display: inline-block;
+    font-family: "Butcherman", cursive;
+    *font-family: "Averia Serif Libre", cursive;
+}
