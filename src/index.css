@@ -1,19 +1,28 @@
 /*
-rojo: #d50000;
-negro: #212121;
-gris: #616161
-
-negro azulado: #263238
-gris azulado: #546e7a
-
-=========
+ROJO ROSADO Y AZUL OSCURO
 rose red:#74112F;
 dark blue: #0C0C1E;
 midnight blue: #1B2E3C;
 black: #211522;
 
+alternativa rojo: #941519
+
+=====
+alternativa FUCSIA Y NEGRO:
+fucsia: #ad1457
+negro: #212121
+
+
 
 */
+
+:root {
+    --primary-color: #ad1457;
+    --background-dark: #212121;
+    --darkprimary-color: #74112f;
+    --secondary-color: #1b2e3c;
+    --light-color: #f2f2f2;
+}
 
 * {
     margin: 0;
@@ -21,10 +30,11 @@ black: #211522;
 }
 
 body {
-    *background-color: #212121;
-    background-color: #0c0c1e;
+    background-color: #212121;
+    *background-color: #0c0c1e;
     font-size: 18px;
     font-family: "Spectral", serif;
+    color: var(--light-color);
 }
 
 .flex {

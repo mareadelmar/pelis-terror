@@ -1,16 +1,16 @@
 import axios from "axios";
+const key = "3487d2eedff804c9332438bb4174c822";
 
-export default function getSimilar(props) {
-    const { id } = props;
-    const apiURL = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=3487d2eedff804c9332438bb4174c822&language=es`;
+export default function getSearch({ keyword }) {
+    const url = `https://api.themoviedb.org/3/search/multi?api_key=${key}&language=es&query=${keyword}`;
     const terrorId = 27;
+    return axios.get(url).then((res) => {
+        const { data } = res;
+        const { results } = data;
+        console.log(res);
+        let terrorMovies = [];
 
-    return axios.get(apiURL).then((response) => {
-        console.log(response.data.results);
-        const data = response.data.results;
-        const movieSimilars = [];
-
-        for (let item of data) {
+        for (let item of results) {
             if (item.genre_ids) {
                 if (item.genre_ids.includes(terrorId)) {
                     const objMovie = {
@@ -20,10 +20,11 @@ export default function getSimilar(props) {
                         lang: item.original_language,
                         year: item.release_date.substr(0, 4),
                     };
-                    movieSimilars.push(objMovie);
+                    terrorMovies.push(objMovie);
                 }
             }
         }
-        return movieSimilars;
+        console.log(terrorMovies);
+        return terrorMovies;
     });
 }

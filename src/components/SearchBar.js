@@ -8,7 +8,7 @@ const SearchBar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        pushLocation(`/search/${keyword}`);
+        pushLocation(`/search/${keyword}/1`);
         console.log(keyword, path);
     };
 
@@ -17,7 +17,7 @@ const SearchBar = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="search-bar">
+        <form onSubmit={handleSubmit} className="flex search-bar">
             <input
                 className="search"
                 onChange={handleInput}

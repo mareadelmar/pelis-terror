@@ -1,9 +1,12 @@
-.cards-container {
+.results-container {
     width: 100%;
     height: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2em;
+}
+
+.page-title {
+    margin: 8%;
+    color: #f2f2f2;
+    font-family: "Spectral SC", serif;
 }
 
 .btn-container {
@@ -12,14 +15,22 @@
 }
 
 .btn {
-    background: #74112f;
+    background: var(--darkprimary-color);
     padding: 0.5em;
-    color: #f2f2f2;
+    color: var(--light-color);
     border: 0;
     border-radius: 7%;
     cursor: pointer;
     margin: 40px auto;
 }
 
+/* img {
+    background-color: #0c0c1e;
+} */
+
 /* .btn-page {
+} */
+
+/* @media (min-width: 800px){
+    
 } */

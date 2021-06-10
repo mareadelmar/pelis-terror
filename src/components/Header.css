@@ -1,14 +1,57 @@
 header {
     width: 100%;
+    flex-direction: column;
 }
 
-.title {
-    font-size: 50px;
-    margin: 0.25em 0 0 0.5em;
-    cursor: pointer;
-    *color: #d50000;
-    color: #74112f;
-    display: inline-block;
-    font-family: "Butcherman", cursive;
-    *font-family: "Averia Serif Libre", cursive;
+.title-container {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
+
+.title-app-home {
+    font-size: 80px;
+    cursor: pointer;
+    color: var(--darkprimary-color);
+    display: inline-block;
+    font-family: "Cedarville Cursive", cursive;
+    margin-top: 100px;
+}
+
+.title-app {
+    font-size: 80px;
+    cursor: pointer;
+    color: var(--darkprimary-color);
+    display: inline-block;
+    *font-family: "Butcherman", cursive;
+    *font-family: "Averia Serif Libre", cursive;
+    *font-family: "Knewave", cursive;
+    font-family: "Cedarville Cursive", cursive;
+}
+
+.log-container {
+    width: 98%;
+    justify-content: flex-end;
+}
+
+.log-container a,
+.log-container button {
+    color: var(--light-color);
+    background-color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 0.25em;
+    margin-top: 0.5em;
+    font-size: 18px;
+    font-family: "Spectral", serif;
+    cursor: pointer;
+}
+
+.log-container button {
+    border: 0;
+    opacity: 0.8;
+}
+
+/* @media (min-width: 800px){
+    
+} */

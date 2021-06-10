@@ -1,0 +1,22 @@
+.loader-container {
+    width: 100%;
+    min-height: 60vh;
+    justify-content: center;
+}
+
+.loader-container img {
+    *width: 25%;
+    opacity: 0.7;
+    width: 92%;
+    height: 50%;
+}
+
+@media (min-width: 800px) {
+    .loader-container {
+        min-height: 90vh;
+    }
+
+    .loader-container img {
+        width: 30%;
+    }
+}

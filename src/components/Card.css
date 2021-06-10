@@ -9,14 +9,13 @@
     box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
     border-radius: 3%;
     margin: 0.5em;
-    color: #f2f2f2;
+    color: var(--light-color);
     cursor: pointer;
     position: relative;
 }
 
 .card:hover {
-    *background-color: #546e7a;
-    background-color: #1b2e3c;
+    background-color: var(--secondary-color);
 }
 
 .card-btns {
@@ -28,7 +27,7 @@
 
 .card a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: var(--light-color);
 }
 
 .card-name {

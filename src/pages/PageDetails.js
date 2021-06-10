@@ -1,60 +1,91 @@
 import React, { useEffect, useState } from "react";
+//import { Link } from "wouter";
 import "./PageDetails.css";
 import getMovie from "../services/getMovie";
 import getSimilar from "../services/getSimilar";
 import Similar from "../components/Similar";
-
-/*
-LLAMADA A API: 
-- detalle: el detalle que trae el discover o necesito la llamada a esa peli? Se lo pasa a cada card
-- similar: llamada a similar. Se lo pasa al componente similar y este se lo pasa a sus cards
-
-DETALLE PELÍCULA
-
-SIMILAR
-- 20 cards
-*/
+import Loader from "../components/Loader";
+import ErrorVisual from "../components/ErrorVisual";
+import { Helmet } from "react-helmet";
 
 const PageDetails = ({ params }) => {
     const [movie, setMovie] = useState({ genres: [] });
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(false);
     const [similar, setSimilar] = useState([]);
     const { id } = params;
     console.log(id);
 
     useEffect(() => {
-        getMovie({ id }).then((movieData) => {
-            console.log(movieData);
-            setMovie(movieData);
-        });
-        getSimilar({ id }).then((similarMovies) => {
-            console.log(similarMovies);
-            setSimilar(similarMovies);
-        });
+        setLoading(true);
+        getMovie({ id })
+            .then((movieData) => {
+                console.log(movieData);
+                setMovie(movieData);
+                setLoading(false);
+                setErrorMessage(false);
+            })
+            .catch((err) => {
+                console.error(err);
+                setErrorMessage(true);
+            });
+        getSimilar({ id })
+            .then((similarMovies) => {
+                console.log(similarMovies);
+
+                setSimilar(similarMovies);
+                setErrorMessage(false);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error(err);
+                setErrorMessage(true);
+            });
     }, [id]);
+
+    if (errorMessage) return <ErrorVisual />;
+    if (loading) return <Loader />;
     return (
-        <section className="details-container">
-            <div className="flex details-content">
-                <div className="details-img">
-                    <img src={movie.img} alt={movie.title} className="img" />
+        <>
+            <Helmet>
+                <title>{`Freaks || ${movie.title}`}</title>
+                <meta name="description" content={movie.title} />
+            </Helmet>
+            <section className="details-container">
+                <div className="flex details-content">
+                    <div className="details-img">
+                        <img
+                            src={movie.img}
+                            alt={movie.title}
+                            className="img"
+                        />
+                    </div>
+                    <div className="details-data">
+                        <h3 className="details-title details-text">
+                            {movie.title}
+                        </h3>
+                        <p className="details-text">
+                            {movie.lang} – {movie.year}
+                        </p>
+                        <p className="details-text">{movie.overview}</p>
+                        <p className="details-text">
+                            <strong>Genres:</strong>
+                            {movie.genres.map((genre) => {
+                                return ` ${genre}, `;
+                            })}
+                        </p>
+                        <div className="details-text">
+                            {/* <Link to={movie.imdb}>
+                            <i class="fab fa-imdb"></i>
+                        </Link> */}
+                        </div>
+                    </div>
                 </div>
-                <div className="details-data">
-                    <h3 className="details-title details-text">
-                        {movie.title}
-                    </h3>
-                    <p className="details-text">
-                        {movie.lang} – {movie.year}
-                    </p>
-                    <p className="details-text">{movie.overview}</p>
-                    <p className="details-text">
-                        <strong>Genres:</strong>
-                        {movie.genres.map((genre) => {
-                            return ` ${genre}, `;
-                        })}
-                    </p>
-                </div>
-            </div>
-            <Similar similar={similar} />
-        </section>
+                <Similar
+                    similar={similar.length > 5 ? similar.slice(0, 5) : similar}
+                />
+            </section>
+        </>
     );
 };
 

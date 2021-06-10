@@ -1,37 +1,20 @@
 import React from "react";
-//import "./PageHome.css";
-
-/*
-LLAMADA A API: 
-- discover con filtros average en orden descendente y género terror
-- pasa la info a cards
-*/
+import "./PageHome.css";
+import SearchBar from "../components/SearchBar";
+import { Helmet } from "react-helmet";
 
 const PageHome = () => {
-    // const [movies, setMovies] = useState([]);
-
-    // useEffect(() => {
-    //     getMovies().then((moviesArray) => {
-    //         console.log(moviesArray);
-    //         setMovies(moviesArray);
-    //     });
-    // }, []);
-
+    const title = "Freaks | Home";
     return (
-        <section className="">
-            {/* {movies.map((item) => {
-                const movieDetails = `${item.lang} – ${item.year}`;
-                return (
-                    <Card
-                        key={item.id}
-                        id={item.id}
-                        name={item.title}
-                        image={item.img}
-                        details={movieDetails}
-                    />
-                );
-            })} */}
-        </section>
+        <>
+            <Helmet>
+                <title>{title}</title>
+                <meta name="description" content={title} />
+            </Helmet>
+            <section className="home-container">
+                <SearchBar />
+            </section>
+        </>
     );
 };
 

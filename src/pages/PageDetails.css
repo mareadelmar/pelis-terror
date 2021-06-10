@@ -36,6 +36,13 @@
     width: 60%;
 }
 
+.fa-imdb {
+    background: #0c0c1e;
+    color: rgba(255, 255, 0, 0.74);
+    font-size: 30px;
+    cursor: pointer;
+}
+
 @media (min-width: 800px) {
     .details-container {
         width: 100%;

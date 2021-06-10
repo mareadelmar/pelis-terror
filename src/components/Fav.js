@@ -1,16 +1,15 @@
 import React from "react";
 import "./Fav.css";
 import { useLocation } from "wouter";
+import useUserData from "../hooks/useUserData";
 
 const Fav = ({ id }) => {
     const [, pushLocation] = useLocation();
-    const isLogged = true;
-    console.log(id);
+    const { userLogged } = useUserData();
 
     const handleFav = () => {
-        console.log("agregar a favs");
-        if (!isLogged) return pushLocation("/login");
-        alert(id);
+        if (!userLogged) return pushLocation("/login");
+        console.log("agregar a favs", id);
     };
 
     return (
