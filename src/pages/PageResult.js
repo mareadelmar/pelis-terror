@@ -15,7 +15,7 @@ const PageResult = ({ params }) => {
     const [errorMessage, setErrorMessage] = useState(false);
     const { keyword, page } = params;
     const [, pushLocation] = useLocation();
-    const title = `Resultados para ${keyword}`;
+    const title = `Freaks | Resultados para ${keyword}`;
 
     const handleNextPage = () => {
         pushLocation(`/search/${keyword}/${Number(page) + 1}`);
@@ -50,7 +50,7 @@ const PageResult = ({ params }) => {
             </Helmet>
             <section className="results-container">
                 <SearchBar />
-                <h3 className="page-title">{movies.length} resultados</h3>
+                <h2 className="page-title">{movies.length} resultados</h2>
                 <ListOfCards listOfMovies={movies} />
                 <div className="flex btn-container">
                     {page > 1 ? (

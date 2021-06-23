@@ -3,18 +3,20 @@ import { Link } from "wouter";
 import "./Card.css";
 import Fav from "./Fav";
 
-const Card = ({ name, details, image, id }) => {
+const Card = ({ dataObject }) => {
+    console.log(dataObject);
+    const { img, lang, year, title, id } = dataObject;
     return (
         <div className="card" data-id={id}>
             <div className="card-btns">
-                <Fav id={id} />
+                <Fav movie={dataObject} />
             </div>
             <Link to={`/movie/${id}`}>
-                <img className="card-img" src={image} alt="" />
+                <img className="card-img" src={img} alt="" />
                 <h4 className="card-name">
-                    {name.length > 20 ? `${name.substr(0, 21)}...` : name}
+                    {title.length > 20 ? `${title.substr(0, 21)}...` : title}
                 </h4>
-                <p className="card-lang-year">{details}</p>
+                <p className="card-lang-year">{`${lang} – ${year}`}</p>
             </Link>
         </div>
     );

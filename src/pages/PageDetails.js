@@ -48,7 +48,7 @@ const PageDetails = ({ params }) => {
     return (
         <>
             <Helmet>
-                <title>{`Freaks || ${movie.title}`}</title>
+                <title>{`Freaks | ${movie.title}`}</title>
                 <meta name="description" content={movie.title} />
             </Helmet>
             <section className="details-container">

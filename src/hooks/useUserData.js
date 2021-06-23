@@ -35,6 +35,7 @@ export default function useUserData() {
         logoutService()
             .then((res) => {
                 console.log(res);
+                setUserData(null);
                 setUserLogged(false);
                 setLoading(false);
             })
@@ -50,22 +51,26 @@ export default function useUserData() {
     }, []);
 
     useEffect(() => {
+        setLoading(true);
         auth.onAuthStateChanged(function (user) {
             if (user) {
                 // User is signed in.
-                console.log(user, "está logueado");
+                console.log(user.uid, "está logueado");
                 setUserLogged(true);
                 setUserData(user);
+                setLoading(false);
             } else {
                 // No user is signed in.
                 console.log("no hay nadie logueado");
                 setUserLogged(false);
                 setUserData(null);
+                setLoading(false);
             }
         });
     }, [setUserData]);
 
     return {
+        setUserData,
         userData,
         logIn,
         logOut,

@@ -7,7 +7,7 @@ import ErrorVisual from "../components/ErrorVisual";
 import { Helmet } from "react-helmet";
 
 const Login = () => {
-    const title = "Freaks || Login";
+    const title = "Freaks | Login";
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [, pushLocation] = useLocation();

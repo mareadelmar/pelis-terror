@@ -10,7 +10,7 @@ const errorGifs = [
 ];
 
 const ErrorVisual = () => {
-    const title = "Freaks || Error";
+    const title = "Freaks | Error";
     // const {errorMessage} = props;
     const errorGifItem = errorGifs[Math.round(Math.random() * 4)];
     console.log(errorGifItem);

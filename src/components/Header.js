@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { Link, useRoute } from "wouter";
 import useUserData from "../hooks/useUserData";
+import "./DropdownUserData.css";
 
 /*
 llamar al hook que chequea logueo y devuelve el objeto user
@@ -13,6 +14,7 @@ const Header = () => {
     // si matchea con login devuelve true
     const [matchLogin] = useRoute("/login");
     const [matchHome] = useRoute("/");
+    const [show, setShow] = useState(false);
 
     const renderLoginButton = ({ userLogged }) => {
         return userLogged ? (
@@ -27,8 +29,24 @@ const Header = () => {
         : renderLoginButton({ userLogged });
     const titleStyleHome = matchHome ? "title-app-home" : "title-app";
 
+    const handleDropdown = (e) => {
+        setShow(!show);
+        console.log("mostrame", show);
+    };
     return (
         <header className="flex">
+            {/* <div className="dropdown">
+                <button onClick={handleDropdown} className="dropbtn">
+                    Dropdown
+                </button>
+                {show ? (
+                    <div id="myDropdown" className="dropdown-content">
+                        <Link to="/">Home</Link>
+                        <Link to="/">About</Link>
+                        {loginBarCondition}
+                    </div>
+                ) : null}
+            </div> */}
             <div className="flex log-container">{loginBarCondition}</div>
             <div className="flex title-container">
                 <Link to="/">

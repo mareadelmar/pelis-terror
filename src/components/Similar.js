@@ -11,16 +11,7 @@ const Similar = ({ similar }) => {
             <h2 className="similar-title">Similar movies</h2>
             <div className="flex similar-movies">
                 {similar.map((item) => {
-                    const movieDetails = `${item.lang} – ${item.year}`;
-                    return (
-                        <Card
-                            key={item.id}
-                            id={item.id}
-                            name={item.title}
-                            image={item.img}
-                            details={movieDetails}
-                        />
-                    );
+                    return <Card key={item.id} dataObject={item} />;
                 })}
             </div>
         </section>

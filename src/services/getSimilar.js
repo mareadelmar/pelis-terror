@@ -24,6 +24,7 @@ export default function getSimilar(props) {
                 }
             }
         }
+
         return movieSimilars;
     });
 }

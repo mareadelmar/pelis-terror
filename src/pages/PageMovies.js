@@ -8,7 +8,7 @@ import ErrorVisual from "../components/ErrorVisual";
 import { Helmet } from "react-helmet";
 
 const PageMovies = ({ params }) => {
-    const title = "Freaks || Explorar";
+    const title = "Freaks | Explorar";
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
