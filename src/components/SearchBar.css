@@ -2,6 +2,8 @@
     padding: 12px 0px 0px 10px;
     width: 100%;
     justify-content: center;
+    *background: url(../images/fondo.jpeg);
+    height: 64px;
 }
 
 .search {
@@ -16,8 +18,9 @@
     padding: 0.5em;
     color: var(--light-color);
     border: 0;
-    border-radius: 7%;
+    border-radius: 4px;
     cursor: pointer;
+    height: 37px;
 }
 
 @media (min-width: 800px) {

@@ -5,24 +5,28 @@ import useUserData from "../hooks/useUserData";
 import Loader from "../components/Loader";
 import ErrorVisual from "../components/ErrorVisual";
 import { Helmet } from "react-helmet";
+import { makeStyles } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+
+const useStyle = makeStyles({
+    btnCustom: {
+        marginTop: "1em",
+    },
+});
 
 const Login = () => {
     const title = "Freaks | Login";
+    const classes = useStyle();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [, pushLocation] = useLocation();
-    const { userData, logIn, logOut, userLogged, loading, errorMessage } =
+    const { userData, logIn, userLogged, loading, errorMessage } =
         useUserData();
 
     const handleLogin = () => {
         console.log("login");
         logIn({ email, password });
         console.log(userData);
-    };
-
-    const handleLogOut = () => {
-        console.log("cerrando sesión");
-        logOut();
     };
 
     useEffect(() => {
@@ -52,12 +56,16 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                     />
-                    <button className="form-btn-login" onClick={handleLogin}>
+
+                    <Button
+                        onClick={handleLogin}
+                        className={classes.btnCustom}
+                        color="primary"
+                        variant="contained"
+                        fullWidth
+                    >
                         Login
-                    </button>
-                    {userLogged ? (
-                        <button onClick={handleLogOut}>Log out</button>
-                    ) : null}
+                    </Button>
                     <p>
                         ¿No tenés cuenta? <Link to="/signup">Creá una acá</Link>
                     </p>
@@ -68,3 +76,34 @@ const Login = () => {
 };
 
 export default Login;
+
+/*
+<Button 
+    color= ""
+    variant= "contained"
+    fullWidth
+
+>
+    Login
+</Button>
+
+
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(purple[500]),
+    backgroundColor: purple[500],
+    '&:hover': {
+      backgroundColor: purple[700],
+    },
+  },
+}))(Button);
+
+
+============================
+container --> fondo pintado
+outlined --> solo bordes
+size (en vez de fullWidth) --> por default medium
+
+
+*/

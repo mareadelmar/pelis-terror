@@ -1,12 +1,7 @@
 .results-container {
     width: 100%;
     height: 100%;
-}
-
-.page-title {
-    margin: 8%;
-    color: #f2f2f2;
-    font-family: "Spectral SC", serif;
+    background: var(--background-dark);
 }
 
 .btn-container {

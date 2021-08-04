@@ -1,0 +1,11 @@
+.nofavs-container {
+    width: 100%;
+    min-height: 60vh;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.nofavs-message {
+    font-style: italic;
+}

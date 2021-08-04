@@ -1,18 +1,19 @@
 /*
-ROJO ROSADO Y AZUL OSCURO
-rose red:#74112F;
-dark blue: #0C0C1E;
-midnight blue: #1B2E3C;
-black: #211522;
-
-alternativa rojo: #941519
-
-=====
-alternativa FUCSIA Y NEGRO:
-fucsia: #ad1457
-negro: #212121
+OPCION 1:
+--primary-color: #ad1457;
+--background-dark: #212121;
+--darkprimary-color: #74112f;
+--secondary-color: #1b2e3c;
+--light-color: #f2f2f2;
 
 
+---
+OPCIÓN 2:
+--primary-color: #c10d09;
+--background-dark: #212121;
+--darkprimary-color: #680e10;
+--secondary-color: #8d5800;
+--light-color: #f2f2f2;
 
 */
 
@@ -30,7 +31,8 @@ negro: #212121
 }
 
 body {
-    background-color: #212121;
+    background: var(--background-dark);
+    *background: url(images/fondo.jpeg);
     *background-color: #0c0c1e;
     font-size: 18px;
     font-family: "Spectral", serif;

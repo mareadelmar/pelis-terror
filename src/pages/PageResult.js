@@ -6,10 +6,11 @@ import ListOfCards from "../components/ListOfCards";
 import getSearch from "../services/getSearch";
 import Loader from "../components/Loader";
 import ErrorVisual from "../components/ErrorVisual";
+import TitlePage from "../components/TitlePage";
 import { Helmet } from "react-helmet";
 
 const PageResult = ({ params }) => {
-    console.log(params, "page result");
+    //console.log(params, "page result");
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
@@ -50,7 +51,7 @@ const PageResult = ({ params }) => {
             </Helmet>
             <section className="results-container">
                 <SearchBar />
-                <h2 className="page-title">{movies.length} resultados</h2>
+                <TitlePage title={`${movies.length} resultados`} />
                 <ListOfCards listOfMovies={movies} />
                 <div className="flex btn-container">
                     {page > 1 ? (

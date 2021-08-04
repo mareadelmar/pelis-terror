@@ -23,7 +23,7 @@ export default function useUserData() {
             })
             .catch((err) => {
                 //window.sessionStorage.removeItem('jwt')
-                console.error(err);
+                console.error(err, err.code, err.message);
                 setLoading(false);
                 setErrorMessage(err);
             });
@@ -47,7 +47,9 @@ export default function useUserData() {
     }, [setUserData]);
 
     const signUp = useCallback(({ email, password }) => {
-        signupService({ email, password }).then((user) => console.log(user));
+        signupService({ email, password })
+            .then((user) => console.log(user))
+            .catch((err) => console.error(err, err.code, err.message));
     }, []);
 
     useEffect(() => {
@@ -55,7 +57,7 @@ export default function useUserData() {
         auth.onAuthStateChanged(function (user) {
             if (user) {
                 // User is signed in.
-                console.log(user.uid, "está logueado");
+                console.log(user.email, "está logueado");
                 setUserLogged(true);
                 setUserData(user);
                 setLoading(false);

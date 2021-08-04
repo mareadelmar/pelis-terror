@@ -17,7 +17,7 @@
 }
 
 .login-form label {
-    margin-top: 1em;
+    *margin-top: 1em;
     font-size: 16px;
 }
 
@@ -25,17 +25,7 @@
     width: 100%;
     border: none;
     line-height: 2;
-}
-
-.form-btn-login {
-    width: 100%;
-    background: var(--primary-color);
-    border-radius: 5px;
-    border: none;
-    line-height: 2.5;
-    color: white;
-    margin-top: 2em;
-    cursor: pointer;
+    margin-bottom: 1em;
 }
 
 .login-form p {

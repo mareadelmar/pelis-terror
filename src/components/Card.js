@@ -4,7 +4,7 @@ import "./Card.css";
 import Fav from "./Fav";
 
 const Card = ({ dataObject }) => {
-    console.log(dataObject);
+    //console.log(dataObject);
     const { img, lang, year, title, id } = dataObject;
     return (
         <div className="card" data-id={id}>
@@ -24,7 +24,7 @@ const Card = ({ dataObject }) => {
 export default Card;
 
 /*
-CLIK PARA DETALLES: modal o página aparte?
+CLIK PARA DETALLES:
 - año
 - géneros
 - descripción
