@@ -2,6 +2,7 @@
 
 Una web para buscar películas de terror y agregarlas a favoritas.
 Con React, Firebase y los recursos de [The Movie Database API](https://www.themoviedb.org/).
+Deployada en: [https://freaks.vercel.app/](https://freaks.vercel.app/)
 
 ## Available Scripts
 
