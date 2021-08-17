@@ -10,7 +10,6 @@ import TitlePage from "../components/TitlePage";
 import { Helmet } from "react-helmet";
 
 const PageResult = ({ params }) => {
-    //console.log(params, "page result");
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);

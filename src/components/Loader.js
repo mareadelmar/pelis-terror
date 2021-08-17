@@ -1,5 +1,4 @@
 import React from "react";
-//import loaderAnimation from "../loader.svg";
 import "./Loader.css";
 
 const Loader = () => {

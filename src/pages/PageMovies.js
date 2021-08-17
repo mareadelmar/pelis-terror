@@ -28,7 +28,6 @@ const PageMovies = ({ params }) => {
         setLoading(true);
         getMovies({ page })
             .then((moviesArray) => {
-                console.log(moviesArray);
                 setMovies(moviesArray);
                 setLoading(false);
                 setErrorMessage(false);

@@ -20,13 +20,10 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [, pushLocation] = useLocation();
-    const { userData, logIn, userLogged, loading, errorMessage } =
-        useUserData();
+    const { logIn, userLogged, loading, errorMessage } = useUserData();
 
     const handleLogin = () => {
-        console.log("login");
         logIn({ email, password });
-        console.log(userData);
     };
 
     useEffect(() => {

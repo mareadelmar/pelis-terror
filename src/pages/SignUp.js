@@ -12,7 +12,6 @@ const SignUp = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        console.log("SignUp");
         signUp({ email, password });
     };
 

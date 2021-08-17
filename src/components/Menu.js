@@ -44,7 +44,6 @@ const Menu = () => {
         : "anónima";
 
     const handleDrawer = () => {
-        console.log("abrir drawer");
         setShowDrawer(!showDrawer);
     };
 

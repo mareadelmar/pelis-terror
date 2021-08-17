@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default function getSimilar(props) {
     const { id } = props;
-    const apiURL = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=3487d2eedff804c9332438bb4174c822&language=es`;
+    const { REACT_APP_API_URL, REACT_APP_API_KEY } = process.env;
+    const apiURL = `${REACT_APP_API_URL}3/movie/${id}/similar?api_key=${REACT_APP_API_KEY}&language=es`;
     const terrorId = 27;
 
     return axios.get(apiURL).then((response) => {
-        console.log(response.data.results);
         const data = response.data.results;
         const movieSimilars = [];
 

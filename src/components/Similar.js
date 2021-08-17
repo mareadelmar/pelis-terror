@@ -3,9 +3,6 @@ import "./Similar.css";
 import Card from "./Card";
 import TitlePage from "./TitlePage";
 
-/*
-capaz el map puede ser un component ListOfMovies y usarlo tmb en pagehome
-*/
 const Similar = ({ similar }) => {
     return (
         <section className="similar-container">

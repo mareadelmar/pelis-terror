@@ -14,13 +14,11 @@ const PageDetails = ({ params }) => {
     const [errorMessage, setErrorMessage] = useState(false);
     const [similar, setSimilar] = useState([]);
     const { id } = params;
-    console.log(id);
 
     useEffect(() => {
         setLoading(true);
         getMovie({ id })
             .then((movieData) => {
-                console.log(movieData);
                 setMovie(movieData);
                 setLoading(false);
                 setErrorMessage(false);
@@ -31,8 +29,6 @@ const PageDetails = ({ params }) => {
             });
         getSimilar({ id })
             .then((similarMovies) => {
-                console.log(similarMovies);
-
                 setSimilar(similarMovies);
                 setErrorMessage(false);
                 setLoading(false);

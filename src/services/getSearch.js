@@ -1,13 +1,12 @@
 import axios from "axios";
-const key = "3487d2eedff804c9332438bb4174c822";
 
 export default function getSearch({ keyword }) {
-    const url = `https://api.themoviedb.org/3/search/multi?api_key=${key}&language=es&query=${keyword}`;
+    const { REACT_APP_API_URL, REACT_APP_API_KEY } = process.env;
+    const url = `${REACT_APP_API_URL}3/search/multi?api_key=${REACT_APP_API_KEY}&language=es&query=${keyword}`;
     const terrorId = 27;
     return axios.get(url).then((res) => {
         const { data } = res;
         const { results } = data;
-        console.log(res);
         let terrorMovies = [];
 
         for (let item of results) {
@@ -24,7 +23,6 @@ export default function getSearch({ keyword }) {
                 }
             }
         }
-        console.log(terrorMovies);
         return terrorMovies;
     });
 }

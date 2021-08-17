@@ -12,9 +12,9 @@ const Fav = ({ movie }) => {
         if (!userLogged) return pushLocation("/login");
         console.log("agregar a favs", movie.id, userData.uid);
         /* 
-        (camiar el icono: de corazon a otro para borrarlo)
-        verificar si el fav ya está en favs con el id --> si está, se borra (toggle) 
-        si no, agregar a favs: pasar el objeto con sus propiedades y subirlo a firestore
+        (camiar el icono cuando se agrega)
+        verificar si el fav ya está en favs con el id 
+        si no, agregar a favs
         */
         const favsRef = db.collection("favs");
 

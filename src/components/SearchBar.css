@@ -3,14 +3,14 @@
     width: 100%;
     justify-content: center;
     *background: url(../images/fondo.jpeg);
-    height: 64px;
 }
 
 .search {
     border: 1px solid #dfe1e5;
     border-radius: 8px;
-    height: 36px;
     width: 70%;
+    padding-left: 1em;
+    line-height: 2.5;
 }
 
 .search-btn {
@@ -20,7 +20,6 @@
     border: 0;
     border-radius: 4px;
     cursor: pointer;
-    height: 37px;
 }
 
 @media (min-width: 800px) {

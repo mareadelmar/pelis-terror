@@ -2,7 +2,6 @@ import React from "react";
 import "./Header.css";
 import { Link, useRoute } from "wouter";
 import useUserData from "../hooks/useUserData";
-//import DropdownUserData from "./DropdownUserData";
 import Menu from "./Menu";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";

@@ -24,8 +24,9 @@
 .login-form input {
     width: 100%;
     border: none;
-    line-height: 2;
+    line-height: 2.5;
     margin-bottom: 1em;
+    padding-left: 1em;
 }
 
 .login-form p {

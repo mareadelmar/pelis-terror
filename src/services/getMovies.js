@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default function getMovies({ page = 1 } = {}) {
-    console.log(page);
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=3487d2eedff804c9332438bb4174c82&language=es&sort_by=popularity.desc&with_genres=27&page=${page}`;
+    const { REACT_APP_API_URL, REACT_APP_API_KEY } = process.env;
+    const apiUrl = `${REACT_APP_API_URL}3/discover/movie?api_key=${REACT_APP_API_KEY}&language=es&sort_by=popularity.desc&with_genres=27&page=${page}`;
 
     return axios.get(apiUrl).then((response) => {
         const data = response.data.results;

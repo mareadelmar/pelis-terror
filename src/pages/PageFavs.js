@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import { useLocation } from "wouter";
 import { db } from "../config/firebaseConfig";
 import useUserData from "../hooks/useUserData";
 import Loader from "../components/Loader";
@@ -10,16 +9,15 @@ import "./PageFavs.css";
 const PageFavs = () => {
     const { userLogged, userData, loading } = useUserData();
     const [favsMovies, setFavMovies] = useState([]);
-    //const [, pushLocation] = useLocation();
-    console.log(userLogged, userData, loading);
 
-    // pasar esto a services
-    // falta si no está logueado que
+    const userUid = userData ? userData.uid : null;
+
+    // mover a servicio
     useEffect(() => {
         if (userLogged) {
             const favsRef = db
                 .collection("favs")
-                .doc(userData.uid)
+                .doc(userUid)
                 .collection("userFavs");
             //const favsRef = favsDB.collection("userFavs");
 
@@ -30,13 +28,12 @@ const PageFavs = () => {
                         moviesArray.push(item.data());
                     });
                     setFavMovies(moviesArray);
-                    console.log(doc, "acaaaaaa");
                 } else {
                     console.log("not found");
                 }
             });
         }
-    }, [userLogged]);
+    }, [userLogged, userUid]);
 
     if (loading) return <Loader />;
     //if (!loading && !userLogged) return <p className=""></p>

@@ -1,6 +1,5 @@
 import { List, ListItem, ListItemText, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-//import { Link } from "wouter";
 
 const useStyle = makeStyles({
     menuList: {

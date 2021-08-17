@@ -2,12 +2,11 @@ import axios from "axios";
 
 export default function getMovie(props) {
     const { id } = props;
-
-    const apiURL = `https://api.themoviedb.org/3/movie/${id}?api_key=3487d2eedff804c9332438bb4174c822&language=es`;
+    const { REACT_APP_API_URL, REACT_APP_API_KEY } = process.env;
+    const apiURL = `${REACT_APP_API_URL}3/movie/${id}?api_key=${REACT_APP_API_KEY}&language=es`;
 
     return axios.get(apiURL).then((response) => {
         const data = response.data;
-        console.log(data);
         const movieGenres = data.genres.map((item) => {
             return ` ${item.name}`;
         });
@@ -22,7 +21,6 @@ export default function getMovie(props) {
             genres: [movieGenres],
             imdb: `https://www.imdb.com/title/${data.imdb_id}`,
         };
-        console.log(movieData);
         return movieData;
     });
 }
