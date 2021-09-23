@@ -3,6 +3,8 @@ import "./PageHome.css";
 import SearchBar from "../components/SearchBar";
 import { Helmet } from "react-helmet";
 import imgUrl from "../images/icon.png";
+import { Container } from "@material-ui/core";
+
 
 const PageHome = () => {
     const title = "Freaks | Home";
@@ -37,9 +39,9 @@ const PageHome = () => {
                     content="https://freaks.vercel.app/"
                 />
             </Helmet>
-            <section className="home-container">
+            <Container className="home-container">
                 <SearchBar />
-            </section>
+            </Container>
         </>
     );
 };

@@ -6,6 +6,8 @@ import Loader from "../components/Loader";
 import getMovies from "../services/getMovies";
 import ErrorVisual from "../components/ErrorVisual";
 import { Helmet } from "react-helmet";
+import { Container } from "@material-ui/core";
+
 
 const PageMovies = ({ params }) => {
     const title = "Freaks | Explorar";
@@ -46,7 +48,7 @@ const PageMovies = ({ params }) => {
                 <title>{title}</title>
                 <meta name="description" content={title} />
             </Helmet>
-            <section className="results-container">
+            <Container className="results-container">
                 <ListOfCards listOfMovies={movies} />
                 <div className="flex btn-container">
                     {page > 1 ? (
@@ -58,7 +60,7 @@ const PageMovies = ({ params }) => {
                         próxima &#62;
                     </button>
                 </div>
-            </section>
+            </Container>
         </>
     );
 };

@@ -7,8 +7,8 @@ const ListOfCards = ({ listOfMovies }) => {
         <div className="flex cards-container">
             {listOfMovies.length > 0
                 ? listOfMovies.map((item) => {
-                      return <Card key={item.id} dataObject={item} />;
-                  })
+                    return <Card key={item.id} dataObject={item} />;
+                })
                 : null}
         </div>
     );

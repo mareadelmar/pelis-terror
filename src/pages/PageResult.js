@@ -8,6 +8,8 @@ import Loader from "../components/Loader";
 import ErrorVisual from "../components/ErrorVisual";
 import TitlePage from "../components/TitlePage";
 import { Helmet } from "react-helmet";
+import { Container } from "@material-ui/core";
+
 
 const PageResult = ({ params }) => {
     const [movies, setMovies] = useState([]);
@@ -48,7 +50,7 @@ const PageResult = ({ params }) => {
                 <title>{title}</title>
                 <meta name="description" content={title} />
             </Helmet>
-            <section className="results-container">
+            <Container className="results-container">
                 <SearchBar />
                 <TitlePage title={`${movies.length} resultados`} />
                 <ListOfCards listOfMovies={movies} />
@@ -68,7 +70,7 @@ const PageResult = ({ params }) => {
                         </button>
                     ) : null}
                 </div>
-            </section>
+            </Container>
         </>
     );
 };
