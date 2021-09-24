@@ -1,8 +1,8 @@
 import React from "react";
 import "./Fav.css";
 import { useLocation } from "wouter";
-import useUserData from "../hooks/useUserData";
-import { db } from "../config/firebaseConfig";
+import useUserData from "../../hooks/useUserData";
+import { db } from "../../config/firebaseConfig";
 
 const Fav = ({ movie }) => {
     const [, pushLocation] = useLocation();

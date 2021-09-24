@@ -1,8 +1,8 @@
 import React from "react";
-import useUserData from "../hooks/useUserData";
-import TitlePage from "../components/TitlePage";
-import Loader from "../components/Loader";
-import userPic from "../images/users/user2.svg";
+import useUserData from "../../hooks/useUserData";
+import TitlePage from "../../components/TitlePage/TitlePage";
+import Loader from "../../components/Loader/Loader";
+import userPic from "../../assets/images/users/user2.svg";
 import "./PageProfile.css";
 
 const PageProfile = () => {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 //import { Link } from "wouter";
 import "./PageDetails.css";
-import getMovie from "../services/getMovie";
-import getSimilar from "../services/getSimilar";
-import Similar from "../components/Similar";
-import Loader from "../components/Loader";
-import ErrorVisual from "../components/ErrorVisual";
+import getMovie from "../../services/getMovie";
+import getSimilar from "../../services/getSimilar";
+import Similar from "../../components/Similar/Similar";
+import Loader from "../../components/Loader/Loader";
+import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
 
 const PageDetails = ({ params }) => {

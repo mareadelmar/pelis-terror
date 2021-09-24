@@ -7,7 +7,7 @@ header {
     width: 100%;
     align-items: center;
     justify-content: center;
-    background: url(../images/fondo.jpeg);
+    background: url(../../assets/images/fondo.jpeg);
 }
 
 .title-app-home {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useLocation, Link } from "wouter";
-import useUserData from "../hooks/useUserData";
-import Loader from "../components/Loader";
-import ErrorVisual from "../components/ErrorVisual";
+import useUserData from "../../hooks/useUserData";
+import Loader from "../../components/Loader/Loader";
+import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
 import { makeStyles } from "@material-ui/core";
 import { Button } from "@material-ui/core";

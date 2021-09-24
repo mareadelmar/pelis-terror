@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../config/firebaseConfig";
-import useUserData from "../hooks/useUserData";
-import Loader from "../components/Loader";
-import ListOfCards from "../components/ListOfCards";
-import TitlePage from "../components/TitlePage";
+import { db } from "../../config/firebaseConfig";
+import useUserData from "../../hooks/useUserData";
+import Loader from "../../components/Loader/Loader";
+import ListOfCards from "../../components/ListOfCards/ListOfCards";
+import TitlePage from "../../components/TitlePage/TitlePage";
 import "./PageFavs.css";
 
 const PageFavs = () => {

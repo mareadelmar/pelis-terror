@@ -1,7 +1,7 @@
 import React from "react";
 import "./Similar.css";
-import Card from "./Card";
-import TitlePage from "./TitlePage";
+import Card from "../Card/Card";
+import TitlePage from "../TitlePage/TitlePage";
 import { Container } from "@material-ui/core";
 
 const Similar = ({ similar }) => {

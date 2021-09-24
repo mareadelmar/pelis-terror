@@ -32,7 +32,7 @@ OPCIÓN 2:
 
 body {
     background: var(--background-dark);
-    *background: url(images/fondo.jpeg);
+    *background: url(./assets/images/fondo.jpeg);
     *background-color: #0c0c1e;
     font-size: 18px;
     font-family: "Spectral", serif;

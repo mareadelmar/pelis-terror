@@ -1,8 +1,8 @@
 import React from "react";
 import "./PageHome.css";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import { Helmet } from "react-helmet";
-import imgUrl from "../images/icon.png";
+import imgUrl from "../../assets/images/icon.png";
 import { Container } from "@material-ui/core";
 
 

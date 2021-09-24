@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
 import "./Card.css";
-import Fav from "./Fav";
+import Fav from "../Fav/Fav";
 
 const Card = ({ dataObject }) => {
     //console.log(dataObject);
