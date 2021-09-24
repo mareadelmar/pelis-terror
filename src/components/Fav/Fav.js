@@ -2,9 +2,9 @@ import React from "react";
 import "./Fav.css";
 import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
-import { db } from "../../config/firebaseConfig";
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 import { Tooltip } from '@material-ui/core';
+import setFav from "../../services/setFav"
 
 const Fav = ({ movie }) => {
     const [, pushLocation] = useLocation();
@@ -16,13 +16,10 @@ const Fav = ({ movie }) => {
         /* 
         (cambiar el icono cuando se agrega) --> FavoriteRoundedIcon
         */
-        const favsRef = db.collection("favs");
 
-        favsRef
-            .doc(userData.uid)
-            .collection("userFavs")
-            .add(movie)
-            .then((doc) => console.log("subido!!", doc));
+        setFav(userData.uid, movie)
+            .then((doc) => console.log("subido!!", doc))
+            .catch(err => console.log(err))
     };
 
     return (
