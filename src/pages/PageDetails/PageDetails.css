@@ -26,6 +26,15 @@
     margin: 7px 0 0 15%;
 }
 
+.details-icons{
+    margin: 16px 0;
+    align-items: center;
+}
+
+.details-icons span {
+    margin: 0 8px;
+}
+
 .details-img {
     width: 100%;
     margin: 70px 0;
@@ -64,12 +73,12 @@
     }
 
     .details-img {
-        width: 50%;
+        width: 75%;
         margin: 70px 0;
         text-align: center;
     }
 
     .img {
-        width: 40%;
+        width: 60%;
     }
 }

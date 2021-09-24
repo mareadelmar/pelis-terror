@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-//import { Link } from "wouter";
+import { Link } from "wouter";
 import "./PageDetails.css";
 import getMovie from "../../services/getMovie";
 import getSimilar from "../../services/getSimilar";
@@ -7,6 +7,10 @@ import Similar from "../../components/Similar/Similar";
 import Loader from "../../components/Loader/Loader";
 import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
+import { Container } from "@material-ui/core";
+import Fav from "../../components/Fav/Fav"
+import ListBtn from "../../components/ListBtn/ListBtn";
+import { Tooltip } from '@material-ui/core';
 
 const PageDetails = ({ params }) => {
     const [movie, setMovie] = useState({ genres: [] });
@@ -47,7 +51,7 @@ const PageDetails = ({ params }) => {
                 <title>{`Freaks | ${movie.title}`}</title>
                 <meta name="description" content={movie.title} />
             </Helmet>
-            <section className="details-container">
+            <Container className="details-container">
                 <div className="flex details-content">
                     <div className="details-img">
                         <img
@@ -70,17 +74,21 @@ const PageDetails = ({ params }) => {
                                 return ` ${genre}, `;
                             })}
                         </p>
-                        <div className="details-text">
-                            {/* <Link to={movie.imdb}>
-                            <i class="fab fa-imdb"></i>
-                        </Link> */}
+                        <div className="flex details-icons">
+                            <Tooltip title="Ir a IMBb">
+                                <span to={movie.imdb}>
+                                    <i class="fab fa-imdb"></i>
+                                </span>
+                            </Tooltip>
+                            <Fav movie={movie} />
+                            <ListBtn movie={movie} />
                         </div>
                     </div>
                 </div>
                 <Similar
                     similar={similar.length > 5 ? similar.slice(0, 5) : similar}
                 />
-            </section>
+            </Container>
         </>
     );
 };

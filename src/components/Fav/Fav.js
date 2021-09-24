@@ -3,6 +3,8 @@ import "./Fav.css";
 import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
 import { db } from "../../config/firebaseConfig";
+import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
+import { Tooltip } from '@material-ui/core';
 
 const Fav = ({ movie }) => {
     const [, pushLocation] = useLocation();
@@ -12,9 +14,7 @@ const Fav = ({ movie }) => {
         if (!userLogged) return pushLocation("/login");
         console.log("agregar a favs", movie.id, userData.uid);
         /* 
-        (camiar el icono cuando se agrega)
-        verificar si el fav ya está en favs con el id 
-        si no, agregar a favs
+        (cambiar el icono cuando se agrega) --> FavoriteRoundedIcon
         */
         const favsRef = db.collection("favs");
 
@@ -26,11 +26,12 @@ const Fav = ({ movie }) => {
     };
 
     return (
-        <button className="btn-fav" onClick={handleFav}>
-            <span aria-label="Fav movie" role="img">
-                ♥️
-            </span>
-        </button>
+        <Tooltip title="Agregar a favoritas">
+            <button className="btn-fav" onClick={handleFav}>
+                <FavoriteBorderRoundedIcon />
+            </button>
+        </Tooltip>
+        
     );
 };
 

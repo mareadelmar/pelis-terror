@@ -1,11 +1,16 @@
 .btn-fav {
-    background: rgba(255, 172, 172, 0.3);
+    *background: rgba(255, 172, 172, 0.3);
+    background: inherit;
     border: 0;
     border-radius: 100px;
-    width: 30px;
-    height: 30px;
+    *width: 30px;
+    *height: 30px;
+    color: pink;
+    cursor: pointer;
+    padding-top: 6px;
 }
 
 .btn-fav:hover {
-    background: rgba(255, 172, 172, 0.85);
+    background: rgba(255, 172, 172, 0.966);
+
 }
