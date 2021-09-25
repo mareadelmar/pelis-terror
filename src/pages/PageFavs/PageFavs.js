@@ -4,6 +4,7 @@ import useUserData from "../../hooks/useUserData";
 import Loader from "../../components/Loader/Loader";
 import ListOfCards from "../../components/ListOfCards/ListOfCards";
 import TitlePage from "../../components/TitlePage/TitlePage";
+import { Container } from "@material-ui/core";
 import "./PageFavs.css";
 
 const PageFavs = () => {
@@ -38,7 +39,7 @@ const PageFavs = () => {
     if (loading) return <Loader />;
     //if (!loading && !userLogged) return <p className=""></p>
     return (
-        <section>
+        <Container>
             <TitlePage title="Tus favoritos" />
             {favsMovies.length >= 1 ? (
                 <ListOfCards listOfMovies={favsMovies} />
@@ -49,7 +50,7 @@ const PageFavs = () => {
                     </p>
                 </div>
             )}
-        </section>
+        </Container>
     );
 };
 

@@ -54,7 +54,7 @@ const Menu = () => {
                     className={classes.btnCustom}
                     onClick={handleDrawer}
                     color="primary"
-                    variant="outlined"
+                    variant="contained"
                 >
                     {mailName}
                 </Button>

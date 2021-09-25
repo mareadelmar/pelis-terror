@@ -11,9 +11,9 @@ header {
 }
 
 .title-app-home {
-    font-size: 80px;
+    font-size: 104px;
     cursor: pointer;
-    color: var(--darkprimary-color);
+    color: var(--primary-color);
     display: inline-block;
     font-family: "Cedarville Cursive", cursive;
     margin-top: 100px;
@@ -22,7 +22,7 @@ header {
 .title-app {
     font-size: 80px;
     cursor: pointer;
-    color: var(--darkprimary-color);
+    color: var(--primary-color);
     display: inline-block;
     *font-family: "Butcherman", cursive;
     *font-family: "Averia Serif Libre", cursive;
