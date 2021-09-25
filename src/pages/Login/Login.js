@@ -5,8 +5,9 @@ import useUserData from "../../hooks/useUserData";
 import Loader from "../../components/Loader/Loader";
 import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
-import { makeStyles } from "@material-ui/core";
-import { Button } from "@material-ui/core";
+import { makeStyles, Button } from "@material-ui/core";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
 
 const useStyle = makeStyles({
     btnCustom: {
@@ -14,23 +15,27 @@ const useStyle = makeStyles({
     },
 });
 
+const formValidation = yup.object().shape({
+    email: yup.string().email("Ingrese un email válido").required("El email es requerido"),
+    password: yup.string().min(8, "La contraseña debe tener al menos ocho caracteres").required("La contraseña es requerida")
+})
+
 const Login = () => {
     const title = "Freaks | Login";
     const classes = useStyle();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [, pushLocation] = useLocation();
     const { logIn, userLogged, loading, errorMessage } = useUserData();
 
-    const handleLogin = () => {
-        logIn({ email, password });
-    };
+    const initialValues = {
+        email: "",
+        password: ""
+    }
 
     useEffect(() => {
         if (userLogged) pushLocation("/");
     }, [userLogged, pushLocation]);
 
-    if (errorMessage) return <ErrorVisual />;
+    //if (errorMessage) return <ErrorVisual />;
     if (loading) return <Loader />;
     return (
         <>
@@ -38,36 +43,72 @@ const Login = () => {
                 <title>{title}</title>
                 <meta name="description" content={title} />
             </Helmet>
-            <div className="flex login-container">
-                <form className="flex login-form">
-                    <h4>Ingresá a tu cuenta:</h4>
-                    <label htmlFor="input-mail">Email:</label>
-                    <input
-                        id="input-mail"
-                        onChange={(e) => setEmail(e.target.value)}
-                        type="text"
-                    />
-                    <label htmlFor="input-pass">Contraseña:</label>
-                    <input
-                        id="input-pass"
-                        onChange={(e) => setPassword(e.target.value)}
-                        type="password"
-                    />
 
-                    <Button
-                        onClick={handleLogin}
-                        className={classes.btnCustom}
-                        color="primary"
-                        variant="contained"
-                        fullWidth
-                    >
-                        Login
-                    </Button>
-                    <p>
-                        ¿No tenés cuenta? <Link to="/signup">Creá una acá</Link>
-                    </p>
-                </form>
-            </div>
+            <Formik
+                initialValues={initialValues}
+                onSubmit={ async (values)=>{
+                    console.log(values);
+                    const { email, password } = values;
+                    logIn({ email, password })
+                        .then(res => console.log(res))
+                        .catch(err => {
+                            console.log(err)
+                            console.error(err)
+                            // faltan estos errores. capaz mejor hacer mi propia alerta
+                        });
+                }}
+                validationSchema={formValidation}
+            >
+                {
+                    ({isSubmitting, errors, touched})=>(
+                        <div className="flex login-container">
+                            <Form className="flex login-form">
+                                <h4>Ingresá a tu cuenta:</h4>
+                                <label htmlFor="input-mail">Email:</label>
+                                <Field
+                                    id="input-mail"
+                                    type="text"
+                                    name="email"
+                                    placeholder="Ingresa tu email"
+                                    error={touched.email && Boolean(errors.email)}
+                                />
+                                <label htmlFor="input-pass">Contraseña:</label>
+                                <Field
+                                    id="input-pass"
+                                    type="password"
+                                    name="password"
+                                    placeholder="Ingresa tu contraseña"
+                                    error={touched.password && Boolean(errors.password)}
+                                />
+
+                                <Button
+                                    type="submit"
+                                    className={classes.btnCustom}
+                                    color="primary"
+                                    variant="contained"
+                                    fullWidth
+                                >
+                                    Login
+                                </Button>
+                                <ErrorMessage
+                                    className="form-alert"
+                                    name="email"
+                                    component="div"
+                                />
+                                <ErrorMessage
+                                    className="form-alert"
+                                    name="password"
+                                    component="div"
+                                />
+
+                                <p>
+                                    ¿No tenés cuenta? <Link to="/signup">Creá una acá</Link>
+                                </p>
+                            </Form>
+                        </div>
+                    )
+                }
+            </Formik>
         </>
     );
 };
@@ -75,16 +116,6 @@ const Login = () => {
 export default Login;
 
 /*
-<Button 
-    color= ""
-    variant= "contained"
-    fullWidth
-
->
-    Login
-</Button>
-
-
 
 const ColorButton = withStyles((theme) => ({
   root: {
