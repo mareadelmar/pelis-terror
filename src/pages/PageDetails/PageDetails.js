@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "wouter";
 import "./PageDetails.css";
 import getMovie from "../../services/getMovie";
 import getSimilar from "../../services/getSimilar";
@@ -8,9 +7,9 @@ import Loader from "../../components/Loader/Loader";
 import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
 import { Container } from "@material-ui/core";
-import Fav from "../../components/Fav/Fav"
-import ListBtn from "../../components/ListBtn/ListBtn";
-import { Tooltip } from '@material-ui/core';
+//import Fav from "../../components/Fav/Fav"
+//import ListBtn from "../../components/ListBtn/ListBtn";
+//import { Tooltip } from '@material-ui/core';
 
 const PageDetails = ({ params }) => {
     const [movie, setMovie] = useState({ genres: [] });
@@ -74,7 +73,7 @@ const PageDetails = ({ params }) => {
                                 return ` ${genre}, `;
                             })}
                         </p>
-                        <div className="flex details-icons">
+                        {/* <div className="flex details-icons">
                             <Tooltip title="Ir a IMBb">
                                 <span to={movie.imdb}>
                                     <i class="fab fa-imdb"></i>
@@ -82,7 +81,7 @@ const PageDetails = ({ params }) => {
                             </Tooltip>
                             <Fav movie={movie} />
                             <ListBtn movie={movie} />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <Similar
