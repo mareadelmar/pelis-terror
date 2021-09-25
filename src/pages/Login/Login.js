@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 import { useLocation, Link } from "wouter";
 import useUserData from "../../hooks/useUserData";
 import Loader from "../../components/Loader/Loader";
-import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
+//import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
 import { makeStyles, Button } from "@material-ui/core";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
+import { loginValidation } from "./loginValidation"
 
 const useStyle = makeStyles({
     btnCustom: {
         marginTop: "1em",
     },
 });
-
-const formValidation = yup.object().shape({
-    email: yup.string().email("Ingrese un email válido").required("El email es requerido"),
-    password: yup.string().min(8, "La contraseña debe tener al menos ocho caracteres").required("La contraseña es requerida")
-})
 
 const Login = () => {
     const title = "Freaks | Login";
@@ -52,12 +47,13 @@ const Login = () => {
                     logIn({ email, password })
                         .then(res => console.log(res))
                         .catch(err => {
-                            console.log(err)
+                            console.log(errorMessage)
+                            console.log(err.code, err.message);
                             console.error(err)
                             // faltan estos errores. capaz mejor hacer mi propia alerta
                         });
                 }}
-                validationSchema={formValidation}
+                validationSchema={loginValidation}
             >
                 {
                     ({isSubmitting, errors, touched})=>(
@@ -80,7 +76,6 @@ const Login = () => {
                                     placeholder="Ingresa tu contraseña"
                                     error={touched.password && Boolean(errors.password)}
                                 />
-
                                 <Button
                                     type="submit"
                                     className={classes.btnCustom}

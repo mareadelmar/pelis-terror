@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
 import { Helmet } from "react-helmet";
 import { makeStyles, Button } from "@material-ui/core";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
+import { signupValidation } from "./signupValidation";
 
 const useStyle = makeStyles({
     btnCustom: {
         marginTop: "1em",
     },
 });
-
-const formValidation = yup.object().shape({
-    email: yup.string().email("Ingrese un email válido").required("El email es requerido"),
-    password: yup.string().min(8, "La contraseña debe tener al menos ocho caracteres").required("La contraseña es requerida")
-})
 
 const SignUp = () => {
     const title = "Freaks | Login";
@@ -25,7 +20,8 @@ const SignUp = () => {
 
     const initialValues = {
         email: "",
-        password: ""
+        password: "",
+        passConfirm: ""
     }
 
     useEffect(() => {
@@ -38,7 +34,6 @@ const SignUp = () => {
                 <title>{title}</title>
                 <meta name="description" content={title} />
             </Helmet>
-
             <Formik
                 initialValues={initialValues}
                 onSubmit={ async (values)=>{
@@ -46,9 +41,13 @@ const SignUp = () => {
                     const { email, password } = values;
                     signUp({ email, password })
                         .then(res => console.log(res))
-                        .catch(err => console.log(err));
+                        .catch(err => {
+                            console.log(err.code, err.message);
+                            console.error(err);
+                            // faltan dar feedback de estos errores
+                        });
                 }}
-                validationSchema={formValidation}
+                validationSchema={signupValidation}
             >
                 {
                     ({isSubmitting, errors, touched})=>(
@@ -61,6 +60,7 @@ const SignUp = () => {
                                     type="text"
                                     name="email"
                                     placeholder="Ingresa tu email"
+                                    error={touched.name && Boolean(errors.name)}
                                 />
                                 <label htmlFor="input-pass">Contraseña:</label>
                                 <Field
@@ -68,15 +68,17 @@ const SignUp = () => {
                                     type="password"
                                     name="password"
                                     placeholder="Ingresa tu contraseña"
-                                    error={touched.name && Boolean(errors.name)}
+                                    error={touched.email && Boolean(errors.email)}
                                 />
-                                {/* <input
-                                    className="form-btn-login"
-                                    id="btn-signup"
-                                    onClick={handleSignUp}
-                                    type="submit"
-                                    value="Sign up"
-                                /> */}
+                                <label htmlFor="input-passConfirm">Confirmar contraseña:</label>
+                                <Field
+                                    id="input-pass"
+                                    type="password"
+                                    name="passConfirm"
+                                    placeholder="Repite la contraseña"
+                                    error={touched.passConfirm && Boolean(errors.passConfirm)}
+                                />
+
                                 <Button
                                     type="submit"
                                     className={classes.btnCustom}
@@ -97,7 +99,12 @@ const SignUp = () => {
                                     name="password"
                                     component="div"
                                 />
-                                </Form>
+                                <ErrorMessage
+                                    className="form-alert"
+                                    name="passConfirm"
+                                    component="div"
+                                />
+                            </Form>
                         </div>
                     )
                 }
