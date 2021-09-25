@@ -33,7 +33,7 @@ const Header = () => {
             </Button>
         );
     };
-    const loginBarCondition = matchLogin ? null : renderNav({ userLogged });
+    const loginBarCondition = matchLogin ? <span></span> : renderNav({ userLogged });
 
     return (
         <header className="flex">

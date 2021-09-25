@@ -3,8 +3,10 @@ import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
 import { Helmet } from "react-helmet";
 import { makeStyles, Button } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { signupValidation } from "./signupValidation";
+
 
 const useStyle = makeStyles({
     btnCustom: {
@@ -14,10 +16,11 @@ const useStyle = makeStyles({
 
 const SignUp = () => {
     const title = "Freaks | Login";
-    const { userLogged, signUp } = useUserData();
+    const { userLogged, signUp, errorMessage } = useUserData();
     const [, pushLocation] = useLocation();
     const classes = useStyle();
 
+    console.log(errorMessage)
     const initialValues = {
         email: "",
         password: "",
@@ -41,11 +44,6 @@ const SignUp = () => {
                     const { email, password } = values;
                     signUp({ email, password })
                         .then(res => console.log(res))
-                        .catch(err => {
-                            console.log(err.code, err.message);
-                            console.error(err);
-                            // faltan dar feedback de estos errores
-                        });
                 }}
                 validationSchema={signupValidation}
             >
@@ -60,7 +58,7 @@ const SignUp = () => {
                                     type="text"
                                     name="email"
                                     placeholder="Ingresa tu email"
-                                    error={touched.name && Boolean(errors.name)}
+                                    error={touched.email && Boolean(errors.email)}
                                 />
                                 <label htmlFor="input-pass">Contraseña:</label>
                                 <Field
@@ -68,7 +66,7 @@ const SignUp = () => {
                                     type="password"
                                     name="password"
                                     placeholder="Ingresa tu contraseña"
-                                    error={touched.email && Boolean(errors.email)}
+                                    error={touched.password && Boolean(errors.password)}
                                 />
                                 <label htmlFor="input-passConfirm">Confirmar contraseña:</label>
                                 <Field
@@ -104,6 +102,9 @@ const SignUp = () => {
                                     name="passConfirm"
                                     component="div"
                                 />
+                                {
+                                    errorMessage && <Alert severity="error">{errorMessage}</Alert>
+                                }
                             </Form>
                         </div>
                     )

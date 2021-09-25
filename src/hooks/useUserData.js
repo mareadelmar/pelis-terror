@@ -22,9 +22,10 @@ export default function useUserData() {
             })
             .catch((err) => {
                 //window.sessionStorage.removeItem('jwt')
-                console.error(err, err.code, err.message);
+                console.log(err, err.code, err.message);
+                console.error(err);
                 setLoading(false);
-                setErrorMessage(err);
+                setErrorMessage(err.message);
             });
     }, []);
 
@@ -39,7 +40,7 @@ export default function useUserData() {
             })
             .catch((err) => {
                 console.error(err);
-                setErrorMessage(err);
+                setErrorMessage(err.message);
                 setLoading(false);
             });
     }, [setUserData]);
@@ -47,7 +48,12 @@ export default function useUserData() {
     const signUp = useCallback(({ email, password }) => {
         signupService({ email, password })
             .then((user) => user)
-            .catch((err) => console.error(err));
+            .catch((err) => {
+                console.log(err, err.code, err.message);
+                console.error(err);
+                setLoading(false);
+                setErrorMessage(err.message);
+            });
     }, []);
 
     useEffect(() => {

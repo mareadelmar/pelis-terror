@@ -33,6 +33,7 @@ header {
 .log-container {
     width: 98%;
     justify-content: flex-end;
+    min-height: 5vh;
 }
 
 /* @media (min-width: 800px){

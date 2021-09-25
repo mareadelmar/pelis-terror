@@ -35,10 +35,13 @@
 
 .form-alert{
     color: black;
-    background-color: rgb(189, 128, 128);
-    margin-top: 16px;
-    padding: 4px;
+    background-color: rgb(253, 236, 234);
+    margin: 16px 0;
+    padding: 16px;
     border-radius: 4px;
+    font-family: "Roboto", "Helvética", sans-serif;
+    font-size: 14px;
+    color: rgb(97, 26, 21);
 }
 
 @media (min-width: 800px) {

@@ -6,6 +6,7 @@ import Loader from "../../components/Loader/Loader";
 //import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
 import { makeStyles, Button } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { loginValidation } from "./loginValidation"
 
@@ -46,12 +47,6 @@ const Login = () => {
                     const { email, password } = values;
                     logIn({ email, password })
                         .then(res => console.log(res))
-                        .catch(err => {
-                            console.log(errorMessage)
-                            console.log(err.code, err.message);
-                            console.error(err)
-                            // faltan estos errores. capaz mejor hacer mi propia alerta
-                        });
                 }}
                 validationSchema={loginValidation}
             >
@@ -95,7 +90,9 @@ const Login = () => {
                                     name="password"
                                     component="div"
                                 />
-
+                                {
+                                    errorMessage && <Alert severity="error">{errorMessage}</Alert>
+                                }
                                 <p>
                                     ¿No tenés cuenta? <Link to="/signup">Creá una acá</Link>
                                 </p>
