@@ -33,6 +33,14 @@
     margin-top: 0.5em;
 }
 
+.form-alert{
+    color: black;
+    background-color: rgb(189, 128, 128);
+    margin-top: 16px;
+    padding: 4px;
+    border-radius: 4px;
+}
+
 @media (min-width: 800px) {
     .login-form {
         max-width: 420px;
