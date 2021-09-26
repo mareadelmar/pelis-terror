@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 import { Tooltip } from '@material-ui/core';
-import setFav from "../../services/setFav"
+import setFav from "../../services/setFavService"
 
 const Fav = ({ movie }) => {
     const [, pushLocation] = useLocation();
