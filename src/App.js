@@ -13,6 +13,7 @@ import { UserContextProvider } from "./context/UserContext";
 //import ErrorVisual from "./components/ErrorVisual";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./config/themeConfig";
+import PageWatchlist from "./pages/PageWatchlist/PageWatchlist";
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                     />
                     <Route path="/favorites" component={PageFavs} />
                     <Route path="/profile" component={PageProfile} />
+                    <Route path="/watchlist" component={PageWatchlist} />
                     <Route path="/" component={PageHome} />
                     {/* <Route path=" " component={ErrorVisual} /> */}
                 </UserContextProvider>
