@@ -4,6 +4,7 @@ import { Button, makeStyles, Avatar } from "@material-ui/core";
 import { Hidden, Drawer, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuList from "./MenuList";
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
 /*
 Menu --> icono hamburguecita
@@ -36,7 +37,8 @@ const useStyles = makeStyles({
     },
     avatar: {
         margin: "0 12px 0 0",
-        fontSize: "24px"
+        height: "32px",
+        width: "32px"
     }
 });
 
@@ -61,7 +63,13 @@ const Menu = () => {
                     color="primary"
                     variant="outlined"
                 >
-                    <Avatar alt="avatar" src="../../assets/images/users/user1.png" className={classes.avatar}/>
+                    <Avatar
+                        alt="avatar"
+                        src="../../assets/images/users/user2.svg"
+                        className={classes.avatar}
+                    >
+                        <PersonOutlineIcon />
+                    </Avatar>
                     {mailName}
                 </Button>
             </Hidden>
