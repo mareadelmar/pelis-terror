@@ -9,16 +9,20 @@ import "./PageFavs.css";
 import getFavs from "../../services/getFavsService";
 
 const PageFavs = () => {
-    const { userLogged, userData, loading } = useUserData();
-    const [favsMovies, setFavMovies] = useState([]);
+    const { userLogged, userData } = useUserData();
+    const [ favsMovies, setFavMovies ] = useState([]);
+    const [ loading, setLoading ] = useState();
 
     const userId = userData ? userData.uid : null;
 
     // mover a servicio
     useEffect(() => {
         if (userLogged) {
-
-            getFavs(userId).then(res => setFavMovies(res));
+            setLoading(true);
+            getFavs(userId).then(res => {
+                setFavMovies(res);
+                setLoading(false);
+            });
             // // mover a getFav service --> + useFavs custom hook
             // const favsRef = db
             //     .collection("favs")
