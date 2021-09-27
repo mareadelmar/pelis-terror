@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "@material-ui/core";
-import TitlePage from "../../components/TitlePage"
+import TitlePage from "../../components/TitlePage/TitlePage"
 import useUserData from "../../hooks/useUserData";
 import { db } from "../../config/firebaseConfig"
 import Loader from "../../components/Loader/Loader"
