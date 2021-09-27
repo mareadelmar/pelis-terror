@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "wouter";
 import "./PageDetails.css";
 import getMovie from "../../services/getMovie";
 import getSimilar from "../../services/getSimilar";
@@ -8,9 +7,15 @@ import Loader from "../../components/Loader/Loader";
 import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
 import { Container } from "@material-ui/core";
+<<<<<<< HEAD
 import Fav from "../../components/Fav/Fav"
 import Watchlist from "../../components/Watchlist";
 import { Tooltip } from '@material-ui/core';
+=======
+//import Fav from "../../components/Fav/Fav"
+//import ListBtn from "../../components/ListBtn/ListBtn";
+//import { Tooltip } from '@material-ui/core';
+>>>>>>> main
 
 const PageDetails = ({ params }) => {
     const [movie, setMovie] = useState({ genres: [] });
