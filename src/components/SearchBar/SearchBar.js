@@ -30,6 +30,7 @@ const SearchBar = () => {
                 variant="contained" 
                 aria-label="search movie"
                 type="submit"
+                className="search-btn"
             >
                 <SearchIcon />
             </Button>

@@ -7,19 +7,15 @@
 
 .search {
     border: 1px solid #dfe1e5;
-    border-radius: 8px;
+    border-radius: 8px 0 0 8px;
     width: 70%;
     padding-left: 1em;
     line-height: 2.5;
+    font-family: revert;
 }
 
-.search-btn {
-    background: var(--primary-color);
-    padding: 0.5em;
-    color: var(--light-color);
-    border: 0;
-    border-radius: 4px;
-    cursor: pointer;
+.search-btn{
+    border-radius: 0 8px 8px 0;
 }
 
 @media (min-width: 800px) {
