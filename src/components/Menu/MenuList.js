@@ -32,32 +32,32 @@ const MenuList = ({ handleLogout }) => {
 
     return (
         <>
-        <List component="nav" className={classes.menuList}>
-            <ListItem button component="a" href="/profile">
-                <ListItemIcon className={classes.icons}>
-                    <PersonOutlineIcon />
-                </ListItemIcon>
-                <ListItemText primary="Perfil" />
-            </ListItem>
-            <ListItem button component="a" href="/favorites">
-                <ListItemIcon className={classes.icons}>
-                    <FavoriteBorderRoundedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Favs" />
-            </ListItem>
-            <ListItem button component="a" href="/watchlist">
-                <ListItemIcon className={classes.icons}>
-                    <BookmarkBorderIcon />
-                </ListItemIcon>
-                <ListItemText primary="Watchlist" />
-            </ListItem>
-        </List>
-        <List component="nav" className={classes.menuFooter}>
-            <Divider />
-            <ListItem button onClick={handleLogout}>
-                <ListItemText primary="Logout" className={classes.logoutBtn}/>
-            </ListItem>
-        </List>
+            <List component="nav" className={classes.menuList}>
+                <ListItem button component="a" href="/profile">
+                    <ListItemIcon className={classes.icons}>
+                        <PersonOutlineIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Perfil" />
+                </ListItem>
+                <ListItem button component="a" href="/favorites">
+                    <ListItemIcon className={classes.icons}>
+                        <FavoriteBorderRoundedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Favs" />
+                </ListItem>
+                <ListItem button component="a" href="/watchlist">
+                    <ListItemIcon className={classes.icons}>
+                        <BookmarkBorderIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Watchlist" />
+                </ListItem>
+            </List>
+            <List component="nav" className={classes.menuFooter}>
+                <Divider />
+                <ListItem button onClick={handleLogout}>
+                    <ListItemText primary="Logout" className={classes.logoutBtn}/>
+                </ListItem>
+            </List>
         </>
     );
 };

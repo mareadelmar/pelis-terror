@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useUserData from "../../hooks/useUserData";
-import { Button, makeStyles } from "@material-ui/core";
+import { Button, makeStyles, Avatar } from "@material-ui/core";
 import { Hidden, Drawer, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuList from "./MenuList";
@@ -32,7 +32,12 @@ mdUp --> para md o mayores
 const useStyles = makeStyles({
     btnCustom: {
         margin: "0.5em 0",
+        fontWeight: "bolder"
     },
+    avatar: {
+        margin: "0 12px 0 0",
+        fontSize: "24px"
+    }
 });
 
 const Menu = () => {
@@ -54,8 +59,9 @@ const Menu = () => {
                     className={classes.btnCustom}
                     onClick={handleDrawer}
                     color="primary"
-                    variant="contained"
+                    variant="outlined"
                 >
+                    <Avatar alt="avatar" src="../../assets/images/users/user1.png" className={classes.avatar}/>
                     {mailName}
                 </Button>
             </Hidden>
