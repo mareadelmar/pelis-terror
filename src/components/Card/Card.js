@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "wouter";
 import "./Card.css";
 import Fav from "../Fav/Fav";
+import Watchlist from "../Watchlist/Watchlist";
 
 const Card = ({ dataObject }) => {
     //console.log(dataObject);
@@ -10,6 +11,7 @@ const Card = ({ dataObject }) => {
         <div className="card" data-id={id}>
             <div className="card-btns">
                 <Fav movie={dataObject} />
+                <Watchlist movie={dataObject}/>
             </div>
             <Link to={`/movie/${id}`}>
                 <img className="card-img" src={img} alt="" />
