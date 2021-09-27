@@ -9,7 +9,7 @@ import ErrorVisual from "../../components/ErrorVisual/ErrorVisual";
 import { Helmet } from "react-helmet";
 import { Container } from "@material-ui/core";
 import Fav from "../../components/Fav/Fav"
-import ListBtn from "../../components/ListBtn/ListBtn";
+import Watchlist from "../../components/Watchlist";
 import { Tooltip } from '@material-ui/core';
 
 const PageDetails = ({ params }) => {
@@ -81,7 +81,7 @@ const PageDetails = ({ params }) => {
                                 </span>
                             </Tooltip>
                             <Fav movie={movie} />
-                            <ListBtn movie={movie} />
+                            <Watchlist movie={movie} />
                         </div>
                     </div>
                 </div>
