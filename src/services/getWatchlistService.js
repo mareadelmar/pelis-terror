@@ -10,7 +10,6 @@ export default function getWathclist(userId){
             doc.forEach((item) => {
                 watchArray.push(item.data());
             });
-            //setFavMovies(moviesArray);
             return watchArray;
         } else {
             console.log("not found");
