@@ -4,38 +4,41 @@ import TitlePage from "../../components/TitlePage/TitlePage"
 import useUserData from "../../hooks/useUserData";
 import { db } from "../../config/firebaseConfig"
 import Loader from "../../components/Loader/Loader"
+import getWathclist from "../../services/getWatchlistService";
+import ListOfCards from "../../components/ListOfCards/ListOfCards";
 
 const PageWatchlist = () => {
     const { userData, userLogged } = useUserData();
-    const [ watchlis, setWatchlist ] = useState();
-    const [ loading, setLoading ] = useState();
-
-    const movies = "";
-
-    const userId = userData.uid || null;
+    const [ watchlist, setWatchlist ] = useState([]);
+    const [ loading, setLoading ] = useState(false);
+    const userId = userData ? userData.uid : null;
 
     useEffect(()=>{
-        const WLRef = db.collection("watchlist")
-            .doc(userId)
-            .collection("userWatchlist");
-        
-        WLRef.get().then((doc) => {
-            if (doc) {
-                const res = doc.map(item => {
-                    return item.data();
-                })
+        setLoading(true);
+        if(userLogged){
+            getWathclist(userId).then(res => {
                 console.log(res);
-            } else {
-                console.log("not found");
-            }
-        })
-    },[userId])
+                setWatchlist(res);
+                setLoading(false);
+            });
+        }
+    },[userId, userLogged])
 
     if (loading) return <Loader />;
     return (
         <Container>
             <TitlePage title="Tus películas guardadas para ver"/>
-            {movies}
+            {
+                watchlist.length > 0 ?
+                <ListOfCards listOfMovies={watchlist}/>
+                : (
+                    <div className="flex nofavs-container">
+                        <p className="nofavs-message">
+                            Aún no tienes películas favoritas
+                        </p>
+                    </div>
+                )
+            }
         </Container>
     )
 }

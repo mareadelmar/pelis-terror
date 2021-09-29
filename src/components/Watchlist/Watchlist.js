@@ -4,7 +4,7 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import { Tooltip } from '@material-ui/core';
 import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
-import { db } from "../../config/firebaseConfig"
+import setWatchlist from '../../services/setWatchlistService';
 
 const Watchlist = ({ movie }) => {
     const { userLogged, userData } = useUserData();
@@ -14,12 +14,9 @@ const Watchlist = ({ movie }) => {
         console.log("agregar a watchlist", movie);
         if (!userLogged) return pushLocation("/login");
 
-        // mandar a firestore
-        const WLRef = db.collection("watchlist");
-        WLRef
-            .doc(userData.uid)
-            .collection("userWatchlist")
-            .add(movie);
+        setWatchlist(userData.uid, movie)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     return (
