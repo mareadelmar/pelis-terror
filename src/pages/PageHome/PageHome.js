@@ -7,11 +7,11 @@ import { Container } from "@material-ui/core";
 
 
 const PageHome = () => {
-    const title = "Freaks | Home";
+    const title = "Home";
     return (
         <>
             <Helmet>
-                <title>{title}</title>
+                <title>{`Freaks | ${title}`}</title>
                 <meta name="description" content={title} />
 
                 <meta property="og:title" content="Freaks" />

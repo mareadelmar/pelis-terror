@@ -15,7 +15,7 @@ const useStyle = makeStyles({
 });
 
 const SignUp = () => {
-    const title = "Freaks | Login";
+    const title = "Login";
     const { userLogged, signUp, errorMessage } = useUserData();
     const [, pushLocation] = useLocation();
     const classes = useStyle();
@@ -34,7 +34,7 @@ const SignUp = () => {
     return (
         <>
             <Helmet>
-                <title>{title}</title>
+                <title>{`Freaks | ${title}`}</title>
                 <meta name="description" content={title} />
             </Helmet>
             <Formik

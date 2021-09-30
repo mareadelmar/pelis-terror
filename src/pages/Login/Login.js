@@ -17,7 +17,7 @@ const useStyle = makeStyles({
 });
 
 const Login = () => {
-    const title = "Freaks | Login";
+    const title = "Login";
     const classes = useStyle();
     const [, pushLocation] = useLocation();
     const { logIn, userLogged, loading, errorMessage } = useUserData();
@@ -36,7 +36,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>{title}</title>
+                <title>{`Freaks | ${title}`}</title>
                 <meta name="description" content={title} />
             </Helmet>
 

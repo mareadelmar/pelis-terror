@@ -10,7 +10,7 @@ import { Container } from "@material-ui/core";
 
 
 const PageMovies = ({ params }) => {
-    const title = "Freaks | Explorar";
+    const title = "Explorar";
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
@@ -45,7 +45,7 @@ const PageMovies = ({ params }) => {
     return (
         <>
             <Helmet>
-                <title>{title}</title>
+                <title>{`Freaks | ${title}`}</title>
                 <meta name="description" content={title} />
             </Helmet>
             <Container className="results-container">

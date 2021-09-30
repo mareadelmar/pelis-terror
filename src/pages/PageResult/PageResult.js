@@ -17,7 +17,7 @@ const PageResult = ({ params }) => {
     const [errorMessage, setErrorMessage] = useState(false);
     const { keyword, page } = params;
     const [, pushLocation] = useLocation();
-    const title = `Freaks | Resultados para ${keyword}`;
+    const title = `Resultados para ${keyword}`;
 
     const handleNextPage = () => {
         pushLocation(`/search/${keyword}/${Number(page) + 1}`);
@@ -47,7 +47,7 @@ const PageResult = ({ params }) => {
     return (
         <>
             <Helmet>
-                <title>{title}</title>
+                <title>{`Freaks | ${title}`}</title>
                 <meta name="description" content={title} />
             </Helmet>
             <Container className="results-container">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useUserData from "../../hooks/useUserData";
+import { Helmet } from "react-helmet";
 import Loader from "../../components/Loader/Loader";
 import ListOfCards from "../../components/ListOfCards/ListOfCards";
 import TitlePage from "../../components/TitlePage/TitlePage";
@@ -11,6 +12,7 @@ const PageFavs = () => {
     const { userLogged, userData } = useUserData();
     const [ favsMovies, setFavMovies ] = useState([]);
     const [ loading, setLoading ] = useState(false);
+    const title = "Favoritas";
 
     const userId = userData ? userData.uid : null;
 
@@ -26,18 +28,24 @@ const PageFavs = () => {
 
     if (loading) return <Loader />;
     return (
-        <Container>
-            <TitlePage title="Tus favoritos" />
-            {favsMovies.length >= 1 ? (
-                <ListOfCards listOfMovies={favsMovies} />
-            ) : (
-                <div className="flex nofavs-container">
-                    <p className="nofavs-message">
-                        Aún no tienes películas favoritas
-                    </p>
-                </div>
-            )}
-        </Container>
+        <>
+            <Helmet>
+                <title>{`Freaks | ${title}`}</title>
+                <meta name="description" content={title} />
+            </Helmet>
+            <Container>
+                <TitlePage title="Tus favoritas" />
+                {favsMovies.length >= 1 ? (
+                    <ListOfCards listOfMovies={favsMovies} />
+                ) : (
+                    <div className="flex nofavs-container">
+                        <p className="nofavs-message">
+                            Aún no tienes películas favoritas
+                        </p>
+                    </div>
+                )}
+            </Container>
+        </>
     );
 };
 
