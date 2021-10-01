@@ -7,24 +7,29 @@ import TitlePage from "../../components/TitlePage/TitlePage";
 import { Container } from "@material-ui/core";
 import "./PageFavs.css";
 import getFavs from "../../services/getFavsService";
+import useFavs from "../../hooks/useFavs";
 
 const PageFavs = () => {
     const { userLogged, userData } = useUserData();
+    const { userFavs, loading } = useFavs();
     const [ favsMovies, setFavMovies ] = useState([]);
-    const [ loading, setLoading ] = useState(false);
+    //const [ loading, setLoading ] = useState(false);
     const title = "Favoritas";
 
-    const userId = userData ? userData.uid : null;
+    //const userId = userData ? userData.uid : null;
 
     useEffect(() => {
-        setLoading(true);
-        if (userLogged) {
-            getFavs(userId).then(res => {
-                setFavMovies(res);
-                setLoading(false);
-            });
-        }
-    }, [userLogged, userId]);
+        console.log(userFavs)
+        if(userFavs) setFavMovies(userFavs)
+
+        //setLoading(true);
+        // if (userLogged) {
+        //     getFavs(userId).then(res => {
+        //         setFavMovies(res);
+        //         setLoading(false);
+        //     });
+        // }
+    }, [userFavs]);
 
     if (loading) return <Loader />;
     return (
