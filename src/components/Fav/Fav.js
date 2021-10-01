@@ -4,11 +4,13 @@ import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 import { Tooltip } from '@material-ui/core';
-import setFav from "../../services/setFavService"
+//import setFav from "../../services/setFavService"
+import useFavs from "../../hooks/useFavs";
 
 const Fav = ({ movie }) => {
     const [, pushLocation] = useLocation();
     const { userLogged, userData } = useUserData();
+    const { addToFav } = useFavs();
 
     const handleFav = () => {
         if (!userLogged) return pushLocation("/login");
@@ -17,9 +19,11 @@ const Fav = ({ movie }) => {
         (cambiar el icono cuando se agrega) --> FavoriteRoundedIcon
         */
 
-        setFav(userData.uid, movie)
-            .then((doc) => console.log("subido!!", doc))
-            .catch(err => console.log(err))
+        // setFav(userData.uid, movie)
+        //     .then((doc) => console.log("subido!!", doc))
+        //     .catch(err => console.log(err))
+
+        addToFav(movie);
     };
 
     return (
