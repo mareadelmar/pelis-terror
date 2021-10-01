@@ -1,6 +1,6 @@
 import React from 'react'
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-// cuando está agregado --> import BookmarkIcon from '@material-ui/icons/Bookmark';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 import { Tooltip } from '@material-ui/core';
 import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
@@ -8,8 +8,12 @@ import useWatchlist from '../../hooks/useWatchlist';
 
 const Watchlist = ({ movie }) => {
     const { userLogged } = useUserData();
-    const { addToWatchlist } = useWatchlist();
+    const { addToWatchlist, userWatchlist } = useWatchlist();
     const [, pushLocation] = useLocation();
+    const isAdded = userWatchlist.some(item => item.id === movie.id);
+
+    const iconBtnType = !isAdded ? <BookmarkBorderIcon /> : <BookmarkIcon />
+    const tooltipType = !isAdded ? "Agregar a watchlist" : "Quitar de watchlist"
 
     const handleAddToList = () => {
         console.log("agregar a watchlist", movie);
@@ -18,9 +22,9 @@ const Watchlist = ({ movie }) => {
     }
 
     return (
-        <Tooltip title="Agregar a lista">
+        <Tooltip title={tooltipType}>
             <button className="btn-fav" onClick={handleAddToList}>
-                <BookmarkBorderIcon />
+                {iconBtnType}
             </button>
         </Tooltip>
     )
