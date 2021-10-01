@@ -1,9 +1,20 @@
 import { db } from "../config/firebaseConfig";
 
-export default function setFav(uid, movie){
-    const favsRef = db.collection("favs");
+const favsRef = db.collection("favs");
+
+export const postFav = (uid, movie) => {
+
+    return favsRef
+        .doc(uid)
+        .collection("userFavs")
+        .doc(String(movie.id))
+        .set(movie)
+}
+
+export const deleteFav = (uid, movieId) => {
     return favsRef
             .doc(uid)
             .collection("userFavs")
-            .add(movie)
+            .doc(String(movieId))
+            .delete()
 }

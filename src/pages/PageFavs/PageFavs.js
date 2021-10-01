@@ -12,7 +12,6 @@ const PageFavs = () => {
     const [ favsMovies, setFavMovies ] = useState([]);
     const title = "Favoritas";
 
-
     useEffect(() => {
         console.log(userFavs)
         if(userFavs) setFavMovies(userFavs)
