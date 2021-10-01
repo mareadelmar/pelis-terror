@@ -33,6 +33,8 @@ export default function useFavs(){
             .then(()=> {
                 console.log("eliminado")
                 setLoading(false);
+                const newList = userFavs.filter(item => item.id !== id);
+                setUserFavs(newList);
             })
             .catch(err => {
                 console.error(err)
@@ -40,9 +42,10 @@ export default function useFavs(){
                 setLoading(false);
             })
 
+        // --> PARA LA UI:
         // const newList = userFavs.filter(item => item.id !== id);
         // setUserFavs(newList);
-    },[setUserFavs, userFavs])
+    },[userId, setUserFavs, userFavs])
 
     useEffect(() => {
         setLoading(true);
