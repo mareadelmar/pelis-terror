@@ -4,7 +4,6 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import { Tooltip } from '@material-ui/core';
 import { useLocation } from "wouter";
 import useUserData from "../../hooks/useUserData";
-//import setWatchlist from '../../services/setWatchlistService';
 import useWatchlist from '../../hooks/useWatchlist';
 
 const Watchlist = ({ movie }) => {
@@ -15,12 +14,7 @@ const Watchlist = ({ movie }) => {
     const handleAddToList = () => {
         console.log("agregar a watchlist", movie);
         if (!userLogged) return pushLocation("/login");
-
         addToWatchlist(movie);
-
-        // setWatchlist(userData.uid, movie)
-        //     .then(res => console.log(res))
-        //     .catch(err => console.log(err));
     }
 
     return (

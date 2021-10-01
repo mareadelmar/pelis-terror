@@ -10,7 +10,6 @@ import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import PageProfile from "./pages/PageProfile/PageProfile";
 import { UserContextProvider } from "./context/UserContext";
-//import ErrorVisual from "./components/ErrorVisual";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./config/themeConfig";
 import PageWatchlist from "./pages/PageWatchlist/PageWatchlist";

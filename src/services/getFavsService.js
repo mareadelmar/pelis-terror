@@ -12,7 +12,6 @@ export default function getFavs(userId){
             doc.forEach((item) => {
                 moviesArray.push(item.data());
             });
-            //setFavMovies(moviesArray);
             return moviesArray;
         } else {
             console.log("not found");
