@@ -30,7 +30,7 @@ const PageWatchlist = () => {
                     : (
                         <div className="flex nofavs-container">
                             <p className="nofavs-message">
-                                Aún no tienes películas favoritas
+                                Aún no tienes películas guardadas
                             </p>
                         </div>
                     )

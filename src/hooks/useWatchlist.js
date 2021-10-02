@@ -24,7 +24,7 @@ export default function useWatchlist(){
             })
     }, [userId])
 
-    const removeFromFav = useCallback((id) => {
+    const removeFromWatchlist = useCallback((id) => {
         console.log("useFav -- removeFromFav");
         setLoading(true);
         deleteWatchlist(userId, id)
@@ -45,6 +45,7 @@ export default function useWatchlist(){
         setLoading(true);
         if (userLogged) {
             getWatchlist(userId).then(res => {
+                console.log("user watchlist --> ", res);
                 setUserWatchlist(res);
                 setLoading(false);
             });
@@ -56,6 +57,6 @@ export default function useWatchlist(){
         loading,
         errorMsn,
         addToWatchlist,
-        removeFromFav
+        removeFromWatchlist
     }
 }

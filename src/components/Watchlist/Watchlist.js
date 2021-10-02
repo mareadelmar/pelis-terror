@@ -8,7 +8,7 @@ import useWatchlist from '../../hooks/useWatchlist';
 
 const Watchlist = ({ movie }) => {
     const { userLogged } = useUserData();
-    const { addToWatchlist, userWatchlist } = useWatchlist();
+    const { addToWatchlist, userWatchlist, removeFromWatchlist } = useWatchlist();
     const [, pushLocation] = useLocation();
     const isAdded = userWatchlist.some(item => item.id === movie.id);
 
@@ -18,6 +18,12 @@ const Watchlist = ({ movie }) => {
     const handleAddToList = () => {
         console.log("agregar a watchlist", movie);
         if (!userLogged) return pushLocation("/login");
+
+        if(isAdded) {
+            console.log("eliminar de favoritos");
+            removeFromWatchlist(movie.id);
+            return;
+        }
         addToWatchlist(movie);
     }
 
