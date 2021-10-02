@@ -5,7 +5,8 @@ export function postWatchlist(userId, movie){
     return WLRef
             .doc(userId)
             .collection("userWatchlist")
-            .add(movie);
+            .doc(String(movie.id))
+            .set(movie);
 }
 
 export const deleteWatchlist = (uid, movieId) => {

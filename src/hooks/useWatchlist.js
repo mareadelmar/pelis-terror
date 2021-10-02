@@ -24,6 +24,23 @@ export default function useWatchlist(){
             })
     }, [userId])
 
+    const removeFromFav = useCallback((id) => {
+        console.log("useFav -- removeFromFav");
+        setLoading(true);
+        deleteWatchlist(userId, id)
+            .then(()=> {
+                console.log("eliminado")
+                setLoading(false);
+                const newList = userWatchlist.filter(item => item.id !== id);
+                setUserWatchlist(newList);
+            })
+            .catch(err => {
+                console.error(err)
+                setErrorMsn(err.message);
+                setLoading(false);
+            })
+    },[userId, setUserWatchlist, userWatchlist])
+
     useEffect(() => {
         setLoading(true);
         if (userLogged) {
@@ -38,6 +55,7 @@ export default function useWatchlist(){
         userWatchlist,
         loading,
         errorMsn,
-        addToWatchlist
+        addToWatchlist,
+        removeFromFav
     }
 }
