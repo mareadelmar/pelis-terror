@@ -25,7 +25,6 @@ export default function useWatchlist(){
     }, [userId])
 
     const removeFromWatchlist = useCallback((id) => {
-        console.log("useFav -- removeFromFav");
         setLoading(true);
         deleteWatchlist(userId, id)
             .then(()=> {

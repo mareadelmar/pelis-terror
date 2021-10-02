@@ -10,14 +10,12 @@ const errorGifs = [
 ];
 
 const ErrorVisual = () => {
-    const title = "Freaks | Error";
-    // const {errorMessage} = props;
+    const title = "Error";
     const errorGifItem = errorGifs[Math.round(Math.random() * 4)];
-    console.log(errorGifItem);
     return (
         <>
             <Helmet>
-                <title>{title}</title>
+                <title>{`Freaks | ${title}`}</title>
                 <meta name="description" content={title} />
             </Helmet>
             <div className="flex error-container">

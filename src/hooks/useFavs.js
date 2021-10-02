@@ -51,6 +51,7 @@ export default function useFavs(){
         if (userLogged) {
             getFavs(userId)
                 .then(res => {
+                    console.log("user favs --> ", res);
                     setUserFavs(res);
                     setLoading(false);
                 })
