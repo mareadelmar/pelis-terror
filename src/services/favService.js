@@ -3,6 +3,7 @@ import { db } from "../config/firebaseConfig";
 const favsRef = db.collection("favs");
 
 export const postFav = (uid, movie) => {
+    movie.date = new Date().toISOString();
     return favsRef
             .doc(uid)
             .collection("userFavs")
@@ -24,15 +25,18 @@ export const getFavs = (userId) => {
                 .doc(userId)
                 .collection("userFavs");
 
-    return favsRef.get().then((doc) => {
-        if (doc) {
-            let moviesArray = [];
-            doc.forEach((item) => {
-                moviesArray.push(item.data());
-            });
-            return moviesArray;
-        } else {
-            console.log("not found");
-        }
-    });
+    return favsRef
+        .orderBy("date", "desc")
+        .get()
+        .then((doc) => {
+            if (doc) {
+                let moviesArray = [];
+                doc.forEach((item) => {
+                    moviesArray.push(item.data());
+                });
+                return moviesArray;
+            } else {
+                console.log("not found");
+            }
+        });
 }
