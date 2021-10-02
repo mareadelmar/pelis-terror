@@ -1,8 +1,7 @@
 import { useState, useContext, useEffect, useCallback } from "react";
 import UserContext from "../context/UserContext";
 import useUserData from "./useUserData";
-import getFavs from "../services/getFavsService";
-import { postFav, deleteFav } from "../services/setFavService";
+import { postFav, deleteFav, getFavs } from "../services/favService";
 
 export default function useFavs(){
     const { userFavs, setUserFavs } = useContext(UserContext);
@@ -66,6 +65,7 @@ export default function useFavs(){
     return {
         userFavs,
         loading,
+        errorMsn,
         addToFav,
         removeFromFav
     }
