@@ -1,20 +1,27 @@
 import { useState, useContext, useEffect, useCallback } from "react";
 import UserContext from "../context/UserContext";
 import useUserData from "./useUserData";
-import getWatchlist from "../services/getWatchlistService";
-import setWatchlist from "../services/setWatchlistService";
+import { postWatchlist, getWatchlist, deleteWatchlist } from "../services/watchlistService";
 
 export default function useWatchlist(){
     const { userWatchlist, setUserWatchlist } = useContext(UserContext);
     const { userLogged, userData } = useUserData();
     const [ loading, setLoading ] = useState(false);
+    const [ errorMsn, setErrorMsn ] = useState("")
 
     const userId = userData ? userData.uid : null;
 
     const addToWatchlist = useCallback((movie) => {
-        setWatchlist(userId, movie)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+        postWatchlist(userId, movie)
+            .then(() => {
+                console.log("subido!!")
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err)
+                setErrorMsn(err.message);
+                setLoading(false);
+            })
     }, [userId])
 
     useEffect(() => {
@@ -30,6 +37,7 @@ export default function useWatchlist(){
     return {
         userWatchlist,
         loading,
+        errorMsn,
         addToWatchlist
     }
 }
