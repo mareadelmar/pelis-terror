@@ -5,11 +5,12 @@ const Loader = () => {
     return (
         <div className="flex loader-container">
             <img
+                loading="lazy"
                 src="https://media.giphy.com/media/Xxw3u5IYp7vaCqWHzx/source.gif"
                 alt="Loader"
             />
         </div>
     );
 };
-// https://i.giphy.com/media/Xxw3u5IYp7vaCqWHzx/giphy.webp
+
 export default Loader;

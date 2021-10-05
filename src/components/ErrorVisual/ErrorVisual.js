@@ -19,7 +19,7 @@ const ErrorVisual = () => {
                 <meta name="description" content={title} />
             </Helmet>
             <div className="flex error-container">
-                <img src={errorGifItem} alt="gif" />
+                <img src={errorGifItem} alt="gif" loading="lazy" />
                 <p>Ooops! Hubo un percance...</p>
             </div>
         </>

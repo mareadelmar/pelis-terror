@@ -14,7 +14,7 @@ const Card = ({ dataObject }) => {
                 <Watchlist movie={dataObject}/>
             </div>
             <Link to={`/movie/${id}`}>
-                <img className="card-img" src={img} alt="" />
+                <img className="card-img" src={img} alt="" loading="lazy"/>
                 <h4 className="card-name">
                     {title.length > 20 ? `${title.substr(0, 21)}...` : title}
                 </h4>
