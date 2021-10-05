@@ -16,7 +16,7 @@ export default function getMovie(props) {
             img: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
             title: data.title,
             lang: data.original_language,
-            year: data.release_date.substr(0, 4),
+            year: data.release_date.substring(0, 4),
             overview: data.overview,
             genres: [movieGenres],
             imdb: `https://www.imdb.com/title/${data.imdb_id}`,

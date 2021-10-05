@@ -13,7 +13,7 @@ export default function getMovies({ page = 1 } = {}) {
                 img: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
                 title: item.title,
                 lang: item.original_language,
-                year: item.release_date.substr(0, 4),
+                year: item.release_date.substring(0, 4),
             };
             moviesArray.push(objMovie);
         }
