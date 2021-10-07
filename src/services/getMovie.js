@@ -1,7 +1,6 @@
 import axios from "axios";
 
-export default function getMovie(props) {
-    const { id } = props;
+export default function getMovie({id}) {
     const { REACT_APP_API_URL, REACT_APP_API_KEY } = process.env;
     const apiURL = `${REACT_APP_API_URL}3/movie/${id}?api_key=${REACT_APP_API_KEY}&language=es`;
 
