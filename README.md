@@ -1,12 +1,17 @@
 # freaks
 
-Una web para buscar películas de terror y agregarlas a favoritas.
-Con React, Firebase y los recursos de [The Movie Database API](https://www.themoviedb.org/).
-Deployada en: [https://freaks.vercel.app/](https://freaks.vercel.app/)
+Una web para buscar películas de terror, utilizando los recursos de [The Movie Database API](https://www.themoviedb.org/).
+Tiene registro de usuarios, permitiendo agregar películas a una lista para ver más tarde y a otra de favoritas.
+Está hecha con React y Firebase (Firebase Authentication y Firestore Database)..\
+.\
+Deployada en: [https://freaks.vercel.app/](https://freaks.vercel.app/).\
+Test:
+usuario: usuario1@email.com.\
+contraseña: 12345678.\
+
+
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
@@ -19,7 +24,6 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -29,10 +33,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
