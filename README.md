@@ -1,13 +1,13 @@
 # freaks
 
-Una web para buscar películas de terror, utilizando los recursos de [The Movie Database API](https://www.themoviedb.org/)..\
-Tiene registro de usuarios, permitiendo agregar películas a una lista para ver más tarde y a otra de favoritas..\
-Está hecha con React y Firebase (Firebase Authentication y Firestore Database)..\
+Una web para buscar películas de terror, utilizando los recursos de [The Movie Database API](https://www.themoviedb.org/).\
+Tiene registro de usuarios, permitiendo agregar películas a una lista para ver más tarde y a otra de favoritas.\
+Está hecha con React y Firebase (Firebase Authentication y Firestore Database).\
 
 Deployada en: [https://freaks.vercel.app/](https://freaks.vercel.app/).\
 Test:.\
 usuario: usuario1@email.com.\
-contraseña: 12345678.\
+contraseña: 12345678
 
 
 
